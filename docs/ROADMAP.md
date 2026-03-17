@@ -1,7 +1,42 @@
 # PersonAI Master Roadmap
 
 ## Overview
-**Single Source of Truth**: This document is synchronized with `data/roadmap.json`. All changes should be made there and synced to this file.
+**Single Source of Truth**: This document is synchronized with `data/roadmap.json`.
+
+## Core Features
+
+### SelfDrivenNLP 🎯
+**100% Native Self-Driven NLP Processing - No External APIs**
+
+The core AI processing engine for PersonAI.
+
+| Property | Value |
+|----------|-------|
+| File | `src/llm/__init__.py` |
+| Class | `SelfDrivenNLP` |
+| Data | `data/learned_patterns.json` |
+| Tests | `tests/advanced/test_llm_intent_parsing_advanced.py` |
+
+**Capabilities:**
+- Intent parsing via rule-based pattern matching
+- Memory integration for context-aware responses
+- Pattern learning from user interactions
+- Real-time response generation
+- Conversation history tracking
+
+**Architecture:**
+```
+Input → SelfDrivenNLP → Intent Detection → Pattern Match/Memory → Response
+                                    ↓
+                          Learned Patterns (file-based)
+```
+
+### Other Core Systems
+- **SelfImprovement**: Autonomous code improvement engine (`src/self_improving/`)
+- **Memory**: Persistent conversation storage (`src/memory/__init__.py`)
+- **Revenue**: 7 AI revenue models (`src/revenue/`)
+
+---
 
 ## Phase 1: Foundation ✅ COMPLETED
 Core infrastructure and basic functionality
@@ -9,7 +44,7 @@ Core infrastructure and basic functionality
 ### Tasks
 - [x] Core state management - Thread-safe AGI state with event system (`src/core/state.py`)
 - [x] Memory system - Persistent conversation storage (`src/memory/__init__.py`)
-- [x] Self-driven NLP - Pure Python NLP without external APIs (`src/llm/__init__.py`)
+- [x] **SelfDrivenNLP** - Pure Python NLP without external APIs (`src/llm/__init__.py`)
 - [x] Agent system - Supervisor, researcher, coder agents (`src/agents/`)
 - [x] Revenue models - 7 core AI revenue models (`src/revenue/models/`)
 - [x] Self-improvement engine - Autonomous code improvement (`src/self_improving/`)
@@ -20,6 +55,8 @@ Core infrastructure and basic functionality
 - `tests/unit/test_state_manager.py`
 - `tests/advanced/test_llm_intent_parsing_advanced.py`
 
+---
+
 ## Phase 2: Planning & Roadmapping ✅ COMPLETED
 Planning and roadmap management
 
@@ -27,10 +64,12 @@ Planning and roadmap management
 - [x] Roadmap tracker - JSON-based progress tracking (`data/roadmap_progress.json`)
 - [x] Planning loop - Main execution loop (`src/planning/loop.py`)
 - [x] Improvement cycle - Self-improvement orchestration (`src/self_improving/runner.py`)
-- [x] Pattern learning - Self-improvement learns from interactions (`src/llm/__init__.py`)
+- [x] Pattern learning - SelfDrivenNLP learns from interactions (`src/llm/__init__.py`)
 
 ### Tests
 - `tests/unit/test_rolling_roadmap.py`
+
+---
 
 ## Phase 3: Web UI & API ✅ COMPLETED
 Web interface and REST API
@@ -47,14 +86,18 @@ Web interface and REST API
 - `tests/advanced/test_executor_and_cli_advanced.py`
 - `tests/integration/test_controller_initialize.py`
 
+---
+
 ## Phase 4: Advanced Features 🔄 IN PROGRESS
 Advanced AI capabilities
 
 ### Tasks
-- [ ] LLM integration - Connect to external LLM providers (OpenAI, Anthropic, Ollama, Grok, OpenRouter)
+- [x] **SelfDrivenNLP Real-Mode** - 100% native processing without external APIs
 - [ ] Autonomous improvements - Self-directed code enhancement
 - [ ] Enhanced personalization - Deeper user preference learning
 - [ ] Multi-modal support - Image and audio processing
+
+---
 
 ## Phase 5: Next Generation 📋 PENDING
 Future capabilities
@@ -83,17 +126,14 @@ Future capabilities
 - **Main Roadmap**: `data/roadmap.json` - Phase-based task tracking
 - **Progress Tracker**: `data/roadmap_progress.json` - Detailed item-level progress
 - **Memory**: `data/memory.json` - Persistent conversation storage
-- **Learned Patterns**: `data/learned_patterns.json` - NLP pattern learning
-
-## Consolidation Notes
-
-This roadmap consolidates:
-1. `data/roadmap.json` - Main phase-based roadmap
-2. `data/roadmap_progress.json` - Detailed item tracking  
-3. `docs/ROADMAP.md` - This document
-4. `docs/PersonAI_Master_Roadmap.md` - DEPRECATED - Use `data/roadmap.json`
+- **Learned Patterns**: `data/learned_patterns.json` - SelfDrivenNLP pattern learning
 
 ## Changelog
+
+### 2026-03-17 (Cycle 15)
+- Added SelfDrivenNLP as core feature at top of roadmap
+- Removed external LLM providers from Phase 4 (SelfDrivenNLP is 100% native)
+- Added capabilities list for SelfDrivenNLP
 
 ### 2026-03-17 (Cycle 13)
 - Consolidated roadmap into single source of truth (`data/roadmap.json`)

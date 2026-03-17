@@ -1,9 +1,39 @@
 {
   "name": "PersonAI Master Roadmap",
-  "version": "3.0.0",
-  "last_synced": "2026-03-17T20:20:00.000000",
+  "version": "3.1.0",
+  "last_synced": "2026-03-17T20:35:00.000000",
   "source": "/home/workspace/personai/data/roadmap.json",
   "description": "Single source of truth - consolidated from multiple files",
+  "core_features": {
+    "SelfDrivenNLP": {
+      "description": "100% native self-driven NLP processing - no external APIs",
+      "file": "src/llm/__init__.py",
+      "class": "SelfDrivenNLP",
+      "capabilities": [
+        "Intent parsing via rule-based pattern matching",
+        "Memory integration for context-aware responses",
+        "Pattern learning from user interactions",
+        "Real-time response generation",
+        "Conversation history tracking"
+      ],
+      "data": "data/learned_patterns.json",
+      "tests": "tests/advanced/test_llm_intent_parsing_advanced.py"
+    },
+    "SelfImprovement": {
+      "description": "Autonomous code improvement engine",
+      "file": "src/self_improving/",
+      "components": ["executor.py", "runner.py", "roadmap.py"]
+    },
+    "Memory": {
+      "description": "Persistent conversation and knowledge storage",
+      "file": "src/memory/__init__.py",
+      "data": "data/memory.json"
+    },
+    "Revenue": {
+      "description": "7 core AI revenue generation models",
+      "file": "src/revenue/"
+    }
+  },
   "phases": [
     {
       "id": "phase1",
@@ -214,7 +244,7 @@
     }
   ],
   "test_coverage": {
-    "total_tests": 17,
+    "total_tests": 38,
     "test_files": [
       "tests/unit/test_executor_analysis.py",
       "tests/unit/test_rolling_roadmap.py",

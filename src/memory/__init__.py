@@ -85,9 +85,10 @@ class MemoryService:
                     for item_data in data.get('memories', []):
                         item = MemoryItem.from_dict(item_data)
                         self.memories[item.id] = item
-            except Exception:
+            except Exception as e:
                 # Handle exception - log if needed
-                pass
+                import logging
+                logging.warning(f"Failed to load memory data: {e}")
     
     def _save(self):
         """Save memories to disk"""

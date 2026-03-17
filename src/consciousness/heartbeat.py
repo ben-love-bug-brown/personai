@@ -83,7 +83,8 @@ class Consciousness:
                 
             except Exception as e:
                 # Handle exception - log for debugging
-    # Handle exception
+                import logging
+                logging.warning(f"Thinking loop error: {e}")
             
             # Wait for next thought cycle
             self._stop_event.wait(self.thought_interval)

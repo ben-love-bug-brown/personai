@@ -10,6 +10,7 @@ from datetime import datetime
 import json
 import os
 import random
+import logging
 
 from .base import RevenueModel, RevenueConfig, RevenueResult, RevenueStatus, RevenueCategory
 from .models.automation_agency import AutomationAgency
@@ -147,7 +148,7 @@ class RevenueOrchestrator:
             try:
                 model.initialize()
             except Exception as e:
-                print(f"Failed to initialize {name}: {e}")
+                logging.error(f"Failed to initialize {name}: {e}")
     
     def register_model(self, name: str, model: RevenueModel):
         """Register a revenue model"""
@@ -182,7 +183,7 @@ class RevenueOrchestrator:
                         self.history = self.history[-1000:]
                         
                 except Exception as e:
-                    print(f"Error executing {name}: {e}")
+                    logging.error(f"Error executing {name}: {e}")
                     results.append(RevenueResult(
                         model=name,
                         amount=0.0,
@@ -266,7 +267,7 @@ class RevenueOrchestrator:
             try:
                 model.stop()
             except Exception as e:
-                print(f"Error stopping model: {e}")
+                logging.error(f"Error stopping model: {e}")
 
 
 def create_orchestrator() -> RevenueOrchestrator:

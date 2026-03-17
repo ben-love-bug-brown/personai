@@ -1,0 +1,160 @@
+"""
+Core State Management
+
+Thread-safe state management for PersonAI.
+"""
+
+import threading
+from dataclasses import dataclass, field
+from typing import Any, Dict, Optional
+from datetime import datetime
+from enum import Enum
+import json
+
+
+class AgentState(Enum):
+    """PersonAI operational states"""
+    IDLE = "idle"
+    THINKING = "thinking"
+    EXECUTING = "executing"
+    IMPROVING = "improving"
+    WAITING = "waiting"
+    ERROR = "error"
+
+
+@dataclass
+class StateSnapshot:
+    """Snapshot of current state"""
+    timestamp: datetime
+    agent_state: AgentState
+    current_task: Optional[str]
+    memory_items: int
+    goals: list
+    revenue_today: float
+    improvements_made: int
+
+
+class StateManager:
+    """Thread-safe state management"""
+    
+    def __init__(self):
+        self._lock = threading.RLock()
+        self._data: Dict[str, Any] = {
+            'agent_state': AgentState.IDLE,
+            'current_task': None,
+            'goals': [],
+            'memory_items': 0,
+            'revenue_today': 0.0,
+            'revenue_total': 0.0,
+            'improvements_made': 0,
+            'conversations_count': 0,
+            'errors': [],
+            'last_thought': None,
+            'uptime_start': datetime.now(),
+        }
+        self._subscribers = []
+    
+    def update(self, key: str, value: Any):
+        """Update a state value atomically"""
+        with self._lock:
+            self._data[key] = value
+            self._notify_subscribers(key, value)
+    
+    def get(self, key: str, default: Any = None) -> Any:
+        """Get a state value"""
+        with self._lock:
+            return self._data.get(key, default)
+    
+    def get_all(self) -> Dict[str, Any]:
+        """Get all state data"""
+        with self._lock:
+            return self._data.copy()
+    
+    def snapshot(self) -> StateSnapshot:
+        """Get current state snapshot"""
+        with self._lock:
+            return StateSnapshot(
+                timestamp=datetime.now(),
+                agent_state=self._data['agent_state'],
+                current_task=self._data['current_task'],
+                memory_items=self._data['memory_items'],
+                goals=self._data['goals'].copy(),
+                revenue_today=self._data['revenue_today'],
+                improvements_made=self._data['improvements_made']
+            )
+    
+    def add_goal(self, goal: str, priority: int = 5):
+        """Add a goal"""
+        with self._lock:
+            goals = self._data.get('goals', [])
+            goals.append({
+                'goal': goal,
+                'priority': priority,
+                'created_at': datetime.now().isoformat(),
+                'completed': False
+            })
+            goals.sort(key=lambda g: g['priority'], reverse=True)
+            self._data['goals'] = goals
+    
+    def complete_goal(self, goal: str):
+        """Mark a goal as completed"""
+        with self._lock:
+            goals = self._data.get('goals', [])
+            for g in goals:
+                if g['goal'] == goal:
+                    g['completed'] = True
+                    g['completed_at'] = datetime.now().isoformat()
+    
+    def add_error(self, error: str):
+        """Record an error"""
+        with self._lock:
+            errors = self._data.get('errors', [])
+            errors.append({
+                'error': error,
+                'timestamp': datetime.now().isoformat()
+            })
+            # Keep last 100 errors
+            self._data['errors'] = errors[-100:]
+    
+    def add_revenue(self, amount: float):
+        """Add revenue"""
+        with self._lock:
+            self._data['revenue_today'] += amount
+            self._data['revenue_total'] += amount
+    
+    def increment_improvements(self):
+        """Increment improvements counter"""
+        with self._lock:
+            self._data['improvements_made'] += 1
+    
+    def subscribe(self, callback):
+        """Subscribe to state changes"""
+        self._subscribers.append(callback)
+    
+    def _notify_subscribers(self, key: str, value: Any):
+        """Notify subscribers of state change"""
+        for callback in self._subscribers:
+            try:
+                callback(key, value)
+            except:
+                pass
+    
+    def to_json(self) -> str:
+        """Serialize state to JSON"""
+        with self._lock:
+            data = self._data.copy()
+            data['agent_state'] = data['agent_state'].value if isinstance(data.get('agent_state'), AgentState) else str(data.get('agent_state'))
+            data['uptime_start'] = data['uptime_start'].isoformat() if isinstance(data.get('uptime_start'), datetime) else str(data.get('uptime_start'))
+            return json.dumps(data, indent=2)
+
+
+# Global state instance
+_state: Optional[StateManager] = None
+
+
+def get_state() -> StateManager:
+    """Get the global state manager"""
+    global _state
+    if _state is None:
+        _state = StateManager()
+    return _state

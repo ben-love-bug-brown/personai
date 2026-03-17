@@ -115,7 +115,8 @@ class AutomationAgency(RevenueModel):
                     for c in data.get("clients", []):
                         self.clients.append(Client(**c))
             except Exception:
-    # Handle exception
+                pass  # Handle exception
+                pass  # Handle exception
         
         if os.path.exists(workflows_file):
             try:
@@ -124,7 +125,8 @@ class AutomationAgency(RevenueModel):
                     for w in data.get("workflows", []):
                         self.workflows[w["id"]] = Workflow(**w)
             except Exception:
-    # Handle exception
+                pass  # Handle exception
+                pass  # Handle exception
     
     def _save_data(self):
         """Save clients and workflows"""

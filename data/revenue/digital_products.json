@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "id": "dp_0",
+      "name": "AI Prompt Master Bundle",
+      "type": "prompt_pack",
+      "description": "Ultimate collection of AI prompts",
+      "price": 29.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 0,
+      "rating": 0.0
+    },
+    {
+      "id": "dp_1",
+      "name": "Notion Productivity Pack",
+      "type": "template",
+      "description": "Complete workspace templates",
+      "price": 19.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 0,
+      "rating": 0.0
+    },
+    {
+      "id": "dp_2",
+      "name": "ChatGPT for Business",
+      "type": "course",
+      "description": "Video course on AI for business",
+      "price": 99.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 0,
+      "rating": 0.0
+    },
+    {
+      "id": "dp_3",
+      "name": "2024 AI Trends Ebook",
+      "type": "ebook",
+      "description": "Comprehensive guide to AI trends",
+      "price": 9.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 0,
+      "rating": 0.0
+    }
+  ]
+}

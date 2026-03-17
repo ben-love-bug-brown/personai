@@ -68,6 +68,7 @@ class AffiliateMarketing(RevenueModel):
                     for l in data.get("links", []):
                         self.affiliate_links.append(AffiliateLink(**l))
             except Exception:
+                pass  # Handle exception
     # Handle exception
         
         content_file = os.path.join(data_dir, "affiliate_content.json")
@@ -78,6 +79,7 @@ class AffiliateMarketing(RevenueModel):
                     for c in data.get("content", []):
                         self.content.append(ContentPiece(**c))
             except Exception:
+                pass  # Handle exception
     # Handle exception
         
         # Default keywords

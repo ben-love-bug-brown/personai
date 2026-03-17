@@ -49,7 +49,7 @@ class RollingRoadmap:
                     data = json.load(f)
                     self.cycles_completed = data.get('cycles_completed', 0)
                     self.improvements_made = data.get('improvements_made', 0)
-            except Exception as e:
+            except:
                 pass
     
     def _save(self):

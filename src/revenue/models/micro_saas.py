@@ -55,7 +55,7 @@ class MicroSaaS(RevenueModel):
                             p["launched_at"] = datetime.fromisoformat(launched)
                         self.products.append(SaaSProduct(**p))
             except Exception:
-    # Handle exception
+                pass  # Handle exception
     
     def _save_data(self):
         """Save products"""

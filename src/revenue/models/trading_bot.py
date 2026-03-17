@@ -79,6 +79,7 @@ class TradingBot(RevenueModel):
                             s["timestamp"] = datetime.fromisoformat(ts)
                         self.strategies.append(Strategy(**s))
             except Exception:
+                pass  # Handle exception
                 pass
         
         trades_file = os.path.join(data_dir, "trading_trades.json")
@@ -92,6 +93,7 @@ class TradingBot(RevenueModel):
                             t["timestamp"] = datetime.fromisoformat(ts)
                         self.trades.append(Trade(**t))
             except Exception:
+                pass  # Handle exception
                 pass
     
     def _save_data(self):

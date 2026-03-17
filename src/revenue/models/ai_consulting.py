@@ -73,6 +73,7 @@ class AIConsulting(RevenueModel):
                     for c in data.get("consultants", []):
                         self.consultants.append(Consultant(**c))
             except Exception:
+                pass  # Handle exception
                 pass
         
         projects_file = os.path.join(data_dir, "ai_consulting_projects.json")
@@ -83,6 +84,7 @@ class AIConsulting(RevenueModel):
                     for p in data.get("projects", []):
                         self.projects.append(Project(**p))
             except Exception:
+                pass  # Handle exception
                 pass
     
     def _save_data(self):

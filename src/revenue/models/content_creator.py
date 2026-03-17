@@ -61,6 +61,7 @@ class ContentCreator(RevenueModel):
                     for c in data.get("content", []):
                         self.content.append(Content(**c))
             except Exception:
+                pass  # Handle exception
                 pass
         
         # Initialize subscribers

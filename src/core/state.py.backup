@@ -136,7 +136,7 @@ class StateManager:
         for callback in self._subscribers:
             try:
                 callback(key, value)
-            except:
+            except Exception as e:
                 pass
     
     def to_json(self) -> str:

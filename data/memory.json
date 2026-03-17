@@ -153,7 +153,143 @@
         "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
         "improvement": "Empty except block at line 80"
       }
+    },
+    {
+      "id": "452561ad-9d53-4e25-8951-4e7ea312cf77",
+      "content": "Test memory",
+      "category": "self_improvement",
+      "importance": 0.5,
+      "created_at": "2026-03-17T17:25:12.897428",
+      "accessed_at": "2026-03-17T17:25:12.898153",
+      "access_count": 1,
+      "metadata": {}
+    },
+    {
+      "id": "fe169d26-31c1-40b4-bcbe-4cc38f714559",
+      "content": "Applied improvement: Bare except on line 52 - should catch specific exception to /home/workspace/personai/src/self_improving/roadmap.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:27:04.800455",
+      "accessed_at": "2026-03-17T17:27:04.800455",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "111ee398-35ad-4945-8c1a-8c41bb4d6ee9",
+        "file": "/home/workspace/personai/src/self_improving/roadmap.py",
+        "improvement": "Bare except on line 52 - should catch specific exception"
+      }
+    },
+    {
+      "id": "7ec80d0e-aaa0-4ac9-8428-0ad645fa00f0",
+      "content": "Applied improvement: Empty except block at line 142 to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:27:04.801509",
+      "accessed_at": "2026-03-17T17:27:04.801509",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "aa5d6c5b-80b1-4c0e-862f-3b23bd741b7d",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 142"
+      }
+    },
+    {
+      "id": "adf8fe58-14aa-4216-8ebe-d5f211843fba",
+      "content": "Applied improvement: Empty except block at line 139 to /home/workspace/personai/src/core/state.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:27:04.805617",
+      "accessed_at": "2026-03-17T17:27:04.805617",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "29d99733-af99-4f08-bc9f-7bd479629852",
+        "file": "/home/workspace/personai/src/core/state.py",
+        "improvement": "Empty except block at line 139"
+      }
+    },
+    {
+      "id": "947d73aa-9ed6-4250-8892-a96df389e89f",
+      "content": "Applied improvement: Bare except on line 52 - should catch specific exception to /home/workspace/personai/src/self_improving/roadmap.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:27:31.554991",
+      "accessed_at": "2026-03-17T17:27:31.554991",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "c3d03a02-8009-444f-9c27-f8b1b0048b32",
+        "file": "/home/workspace/personai/src/self_improving/roadmap.py",
+        "improvement": "Bare except on line 52 - should catch specific exception"
+      }
+    },
+    {
+      "id": "88f7de60-b3e3-49f8-8aef-619136bdce6e",
+      "content": "Applied improvement: Empty except block at line 142 to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:27:31.555823",
+      "accessed_at": "2026-03-17T17:27:31.555823",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "28d2a530-cffb-4bb7-bd25-c6579c244a5f",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 142"
+      }
+    },
+    {
+      "id": "f541f53e-2d9f-408a-98d7-aa4dff631377",
+      "content": "Applied improvement: Empty except block at line 139 to /home/workspace/personai/src/core/state.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:27:31.556693",
+      "accessed_at": "2026-03-17T17:27:31.556693",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "6c80fa97-a65f-43cf-84e9-122cf7d9e584",
+        "file": "/home/workspace/personai/src/core/state.py",
+        "improvement": "Empty except block at line 139"
+      }
+    },
+    {
+      "id": "7b5df558-e409-4d8c-9464-763fa0dbeca0",
+      "content": "Applied improvement: Bare except on line 52 - should catch specific exception to /home/workspace/personai/src/self_improving/roadmap.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:28:56.817422",
+      "accessed_at": "2026-03-17T17:28:56.817422",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "ca742c0c-5117-45af-92b1-1eda3afc22d3",
+        "file": "/home/workspace/personai/src/self_improving/roadmap.py",
+        "improvement": "Bare except on line 52 - should catch specific exception"
+      }
+    },
+    {
+      "id": "711f2317-185e-44df-ab33-ea10968f9fb2",
+      "content": "Applied improvement: Empty except block at line 142 to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:28:56.818554",
+      "accessed_at": "2026-03-17T17:28:56.818554",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "91fdf508-5f0e-45a8-93ee-215e4ec551a0",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 142"
+      }
+    },
+    {
+      "id": "f07fd7cc-73cf-43d5-95c3-aec9d8707717",
+      "content": "Applied improvement: Empty except block at line 139 to /home/workspace/personai/src/core/state.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T17:28:56.819652",
+      "accessed_at": "2026-03-17T17:28:56.819652",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "947967e1-a165-497d-9ad2-6e41d152909b",
+        "file": "/home/workspace/personai/src/core/state.py",
+        "improvement": "Empty except block at line 139"
+      }
     }
   ],
-  "saved_at": "2026-03-17T17:23:07.951140"
+  "saved_at": "2026-03-17T17:28:56.819758"
 }

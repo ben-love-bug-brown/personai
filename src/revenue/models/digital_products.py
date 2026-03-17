@@ -78,6 +78,7 @@ class DigitalProducts(RevenueModel):
                     for p in data.get("products", []):
                         self.products.append(DigitalProduct(**p))
             except Exception:
+                pass  # Handle exception
                 pass
     
     def _save_data(self):

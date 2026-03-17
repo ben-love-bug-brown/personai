@@ -445,7 +445,301 @@
       "accessed_at": "2026-03-17T20:32:16.872173",
       "access_count": 0,
       "metadata": {}
+    },
+    {
+      "id": "1813ddff-737f-48af-8389-4972870d56d9",
+      "content": "Applied improvement: Empty except block at line 70 to /home/workspace/personai/src/revenue/models/affiliate.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:14:47.685578",
+      "accessed_at": "2026-03-17T21:14:47.685578",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "2d6a5951-b17c-4592-8d0e-bc1caf734dda",
+        "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
+        "improvement": "Empty except block at line 70"
+      }
+    },
+    {
+      "id": "d827f6d1-ad34-4ac6-a50e-7785c4bed28a",
+      "content": "Applied improvement: Empty except block at line 80 to /home/workspace/personai/src/revenue/models/affiliate.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:14:47.686836",
+      "accessed_at": "2026-03-17T21:14:47.686836",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "22f353d4-b775-4f39-abd9-8273aedda7aa",
+        "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
+        "improvement": "Empty except block at line 80"
+      }
+    },
+    {
+      "id": "b024e037-ad53-406f-99fc-274147df14c5",
+      "content": "Applied improvement: Empty except block at line 50 to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:14:47.687927",
+      "accessed_at": "2026-03-17T21:14:47.687927",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "29ea4f4c-968d-40f8-8d3d-28e1d7d9f6a8",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 50"
+      }
+    },
+    {
+      "id": "94e8a450-edab-4245-a6fb-35564d0c6914",
+      "content": "Applied improvement: Empty except block at line 50 - add error handling to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:16:10.373694",
+      "accessed_at": "2026-03-17T21:16:10.373694",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "78abb145-5257-4108-83dc-f9e252e9e1ed",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 50 - add error handling"
+      }
+    },
+    {
+      "id": "70beca87-7e8e-4209-9725-f94df866b885",
+      "content": "Applied improvement: Empty except block at line 122 - add error handling to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:16:10.375036",
+      "accessed_at": "2026-03-17T21:16:10.375036",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "13251561-0339-4646-bb2d-c94def35605f",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 122 - add error handling"
+      }
+    },
+    {
+      "id": "6e3fbad0-2fb0-448c-9109-710b5417728a",
+      "content": "Applied improvement: Duplicate code at lines [25, 38, 57] - consider refactoring to /home/workspace/personai/src/api/nlp_service.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:16:10.376184",
+      "accessed_at": "2026-03-17T21:16:10.376184",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "c31de8b6-ddee-491a-8c5f-69b3c039d220",
+        "file": "/home/workspace/personai/src/api/nlp_service.py",
+        "improvement": "Duplicate code at lines [25, 38, 57] - consider refactoring"
+      }
+    },
+    {
+      "id": "279207d1-33c8-4e73-b731-bcd16d4d94a5",
+      "content": "Applied improvement: Empty except block at line 70 - add error handling to /home/workspace/personai/src/revenue/models/affiliate.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:18:41.375032",
+      "accessed_at": "2026-03-17T21:18:41.375032",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "ff9afabf-e934-438f-9f1a-07a658eea122",
+        "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
+        "improvement": "Empty except block at line 70 - add error handling"
+      }
+    },
+    {
+      "id": "48cb4cfc-db97-4aea-9062-03dc3936cde3",
+      "content": "Applied improvement: Empty except block at line 80 - add error handling to /home/workspace/personai/src/revenue/models/affiliate.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:18:41.376592",
+      "accessed_at": "2026-03-17T21:18:41.376592",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "8b4c6dea-bba8-46ec-bab2-3aba2d381a03",
+        "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
+        "improvement": "Empty except block at line 80 - add error handling"
+      }
+    },
+    {
+      "id": "b4109ec2-ff25-49e1-8388-5f316c3b403d",
+      "content": "Applied improvement: Empty except block at line 50 - add error handling to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:18:41.377951",
+      "accessed_at": "2026-03-17T21:18:41.377951",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "3789c66b-d08d-4956-935f-5e49ee2caf4d",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 50 - add error handling"
+      }
+    },
+    {
+      "id": "9ab744c2-377a-4957-9989-697a4029536b",
+      "content": "Applied improvement: Empty except block at line 70 - add error handling to /home/workspace/personai/src/revenue/models/affiliate.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:18:47.848542",
+      "accessed_at": "2026-03-17T21:18:47.848542",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "30e230ab-f5c5-476f-a70a-23e0ab45e8b3",
+        "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
+        "improvement": "Empty except block at line 70 - add error handling"
+      }
+    },
+    {
+      "id": "108b682a-b76a-46eb-8f87-3c6378913808",
+      "content": "Applied improvement: Empty except block at line 81 - add error handling to /home/workspace/personai/src/revenue/models/affiliate.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:18:47.849957",
+      "accessed_at": "2026-03-17T21:18:47.849957",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "6b3227e5-a4d4-4082-b833-d60175150444",
+        "file": "/home/workspace/personai/src/revenue/models/affiliate.py",
+        "improvement": "Empty except block at line 81 - add error handling"
+      }
+    },
+    {
+      "id": "443966a9-fb11-40c1-a8a0-0461f903b3ab",
+      "content": "Applied improvement: Empty except block at line 50 - add error handling to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:18:47.851228",
+      "accessed_at": "2026-03-17T21:18:47.851228",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "2c8fa5b4-6927-4467-ac25-2b0f3db78932",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 50 - add error handling"
+      }
+    },
+    {
+      "id": "9bd95f45-1fd8-464d-b2fb-6acd49527c43",
+      "content": "Applied improvement: Duplicate code at lines [25, 38, 57] - consider refactoring to /home/workspace/personai/src/api/nlp_service.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:19:52.306898",
+      "accessed_at": "2026-03-17T21:19:52.306898",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "4c51216d-421b-40b0-8e86-c4e17d0ede8f",
+        "file": "/home/workspace/personai/src/api/nlp_service.py",
+        "improvement": "Duplicate code at lines [25, 38, 57] - consider refactoring"
+      }
+    },
+    {
+      "id": "c7cff641-3804-415e-95dd-e3ce56e9720c",
+      "content": "Applied improvement: Duplicate code at lines [61, 87, 136] - consider refactoring to /home/workspace/personai/src/revenue/orchestrator.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:19:52.308245",
+      "accessed_at": "2026-03-17T21:19:52.308245",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "0bfeaeb0-bd9f-4984-b5f1-e39c5dd2535a",
+        "file": "/home/workspace/personai/src/revenue/orchestrator.py",
+        "improvement": "Duplicate code at lines [61, 87, 136] - consider refactoring"
+      }
+    },
+    {
+      "id": "71bb825e-35ed-4867-997d-998f56996138",
+      "content": "Applied improvement: Duplicate code at lines [80, 246, 277] - consider refactoring to /home/workspace/personai/src/revenue/models/content_creator.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:19:52.309611",
+      "accessed_at": "2026-03-17T21:19:52.309611",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "46e6194b-a400-4dd5-9411-7bd7b7d631ae",
+        "file": "/home/workspace/personai/src/revenue/models/content_creator.py",
+        "improvement": "Duplicate code at lines [80, 246, 277] - consider refactoring"
+      }
+    },
+    {
+      "id": "b9a50b7c-3ad7-4ddb-9612-f616e0f43497",
+      "content": "Applied improvement: Print statement on line 109 - consider logging for production to /home/workspace/personai/src/api/nlp_service.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:24:08.888493",
+      "accessed_at": "2026-03-17T21:24:08.888493",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "0b28235e-70d7-4ac8-a48a-c097799da114",
+        "file": "/home/workspace/personai/src/api/nlp_service.py",
+        "improvement": "Print statement on line 109 - consider logging for production"
+      }
+    },
+    {
+      "id": "de7efad0-f19a-4850-b5ac-e0d762467e53",
+      "content": "Applied improvement: Print statement on line 75 - consider logging for production to /home/workspace/personai/src/planning/loop.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:24:08.889856",
+      "accessed_at": "2026-03-17T21:24:08.889856",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "69ff5270-dba5-4e1d-95cc-67dc923a5192",
+        "file": "/home/workspace/personai/src/planning/loop.py",
+        "improvement": "Print statement on line 75 - consider logging for production"
+      }
+    },
+    {
+      "id": "c759ed40-3532-471b-8ce6-5b37e3d74d73",
+      "content": "Applied improvement: Print statement on line 82 - consider logging for production to /home/workspace/personai/src/planning/loop.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:24:08.909089",
+      "accessed_at": "2026-03-17T21:24:08.909089",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "51f0127b-2406-4586-96d3-fa43416e5258",
+        "file": "/home/workspace/personai/src/planning/loop.py",
+        "improvement": "Print statement on line 82 - consider logging for production"
+      }
+    },
+    {
+      "id": "54615d60-bda4-42b5-ad3e-1e242d3dd374",
+      "content": "Applied improvement: Print statement on line 109 - consider logging for production to /home/workspace/personai/src/api/nlp_service.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:24:14.938515",
+      "accessed_at": "2026-03-17T21:24:14.938515",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "b58e27a7-df9f-47dd-a379-51e0e9a1aee3",
+        "file": "/home/workspace/personai/src/api/nlp_service.py",
+        "improvement": "Print statement on line 109 - consider logging for production"
+      }
+    },
+    {
+      "id": "f0ce2973-82de-4133-ac83-6a3e478d6c11",
+      "content": "Applied improvement: Print statement on line 75 - consider logging for production to /home/workspace/personai/src/planning/loop.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:24:14.939932",
+      "accessed_at": "2026-03-17T21:24:14.939932",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "f37d683d-9765-4a66-8492-6b89bfc2c324",
+        "file": "/home/workspace/personai/src/planning/loop.py",
+        "improvement": "Print statement on line 75 - consider logging for production"
+      }
+    },
+    {
+      "id": "7544c94d-9180-4f94-b6a4-fecb8660fe71",
+      "content": "Applied improvement: Print statement on line 82 - consider logging for production to /home/workspace/personai/src/planning/loop.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:24:14.941506",
+      "accessed_at": "2026-03-17T21:24:14.941506",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "2de6bd02-131f-427f-acfd-a806f9d295ff",
+        "file": "/home/workspace/personai/src/planning/loop.py",
+        "improvement": "Print statement on line 82 - consider logging for production"
+      }
     }
   ],
-  "saved_at": "2026-03-17T20:32:16.872281"
+  "saved_at": "2026-03-17T21:24:14.941675"
 }

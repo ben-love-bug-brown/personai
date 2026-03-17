@@ -11,10 +11,11 @@ def test_executor_runs_project_tests_directory(monkeypatch):
 
     captured = {}
 
-    def fake_run(cmd, cwd, capture_output, text, timeout):
+    def fake_run(cmd, cwd, capture_output, text, timeout, env=None):
         captured["cmd"] = cmd
         captured["cwd"] = cwd
-        return SimpleNamespace(returncode=0, stdout="ok", stderr="")
+        # Return proper test output that passes the new checks
+        return SimpleNamespace(returncode=0, stdout="========================= 41 passed =========================", stderr="")
 
     monkeypatch.setattr("src.self_improving.executor.subprocess.run", fake_run)
 

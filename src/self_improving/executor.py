@@ -114,15 +114,17 @@ class SelfImprovementExecutor:
         # Issue 1: Check for print statements that should be logging
         for i, line in enumerate(lines):
             if re.match(r'^\s*print\s*\(', line) and 'logging' not in content[:2000]:
-                issues.append({
-                    'description': f'Print statement on line {i+1} - use logging module',
-                    'old_code': line,
-                    'new_code': line,
-                    'reason': 'Logging is more appropriate for production code',
-                    'priority': 0.6
-                })
+                # Skip if in __main__ or test code
+                if '__main__' not in content[:3000] and 'test' not in content[:3000].lower():
+                    issues.append({
+                        'description': f'Print statement on line {i+1} - consider logging for production',
+                        'old_code': line,
+                        'new_code': line,
+                        'reason': 'Logging is more configurable for production code',
+                        'priority': 0.4
+                    })
         
-        # Issue 2: Check for bare except clauses
+        # Issue 2: Check for bare except clauses - SAFE to auto-fix
         for i, line in enumerate(lines):
             if re.match(r'^\s*except\s*:', line):
                 issues.append({
@@ -130,29 +132,14 @@ class SelfImprovementExecutor:
                     'old_code': line,
                     'new_code': line.replace('except:', 'except Exception as e:'),
                     'reason': 'Bare excepts catch everything including KeyboardInterrupt',
-                    'priority': 0.8
+                    'priority': 0.7
                 })
         
-        # Issue 3: Check for empty except blocks
-        for i, line in enumerate(lines):
-            if re.match(r'^\s*except.*:', line):
-                # Check if next non-empty line is pass (truly empty)
-                for j in range(i+1, min(i+5, len(lines))):
-                    next_line = lines[j].strip()
-                    if next_line:
-                        # Skip if it's a comment or has actual code
-                        if next_line.startswith('#') or next_line != 'pass':
-                            break  # Not an empty except - has content
-                        # Only flag if it's exactly 'pass' with no other content
-                        if next_line == 'pass':
-                            issues.append({
-                                'description': f'Empty except block at line {i+1}',
-                                'old_code': lines[j-1] + '\n' + lines[j],
-                                'new_code': lines[j-1] + '\n    # Handle exception - log error',
-                                'reason': 'Empty except blocks hide errors',
-                                'priority': 0.7
-                            })
-                        break
+        # NOTE: Disabled auto-detection for empty except blocks and duplicate code
+        # as they can create bad code. Focus on safe fixes only.
+        
+        # Issue 3: Check for hardcoded paths (not using os.path.join or Path)
+        # DISABLED - not critical and can cause issues
         
         return issues
     
@@ -297,16 +284,26 @@ class SelfImprovementExecutor:
             return {'passed': True, 'output': 'No tests found, skipping verification', 'errors': ''}
 
         try:
+            # Create clean environment without problematic terminal settings
+            env = os.environ.copy()
+            env['TERM'] = 'dumb'
+            env['COLORTERM'] = ''
+            
             result = subprocess.run(
-                ['python', '-m', 'pytest', '/home/workspace/personai/tests', '-v', '--tb=short', '-x'],
+                ['python', '-m', 'pytest', '/home/workspace/personai/tests', '-v', '--tb=short', '-x', '--no-header'],
                 cwd='/home/workspace/personai',
                 capture_output=True,
                 text=True,
-                timeout=120
+                timeout=120,
+                env=env
             )
+            # Check for actual test failures - look for "FAILED" in stdout (not stderr warnings)
+            stdout = result.stdout
+            # Filter out terminal warnings from check
+            has_failures = 'FAILED' in stdout or result.returncode != 0
             return {
-                'passed': result.returncode == 0,
-                'output': result.stdout[-500:] if result.stdout else '',
+                'passed': not has_failures,
+                'output': stdout[-500:] if stdout else '',
                 'errors': result.stderr[-500:] if result.stderr else ''
             }
         except subprocess.TimeoutExpired:

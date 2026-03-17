@@ -154,6 +154,14 @@ Native self-driven testing and self-maintaining documentation across the full pr
 
 ## Changelog
 
+### 2026-03-17 (Live LLM Bridge - Real AI Responses)
+- **Fixed critical bug**: SelfDrivenNLP had circular reference calling localhost instead of Zo AI API
+- Changed ZoAIBridge to connect to `https://api.zo.computer/zo/ask` directly
+- Added proper authorization using ZO_CLIENT_IDENTITY_TOKEN
+- All chat responses now use real LLM responses from Zo AI
+- Web UI testing now works with live AI responses - no hardcoded fallbacks
+- 44/44 tests still passing
+
 ### 2026-03-17 (Deep Native Autonomy - Phase 4 Advances)
 - Enhanced NLP with dynamic semantic response generation (removed hardcoded responses)
 - Added deep code analysis: complexity detection, duplication detection, hotspot identification

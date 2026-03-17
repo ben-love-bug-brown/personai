@@ -7,13 +7,43 @@
 
 ---
 
-## Overview
+## Session Engineering Notes (Live LLM Bridge Fix)
 
-PersonAI is a self-directed AI partner that:
-- Operates autonomously to earn revenue for you
-- Continuously improves itself through self-analysis
-- Maintains memory and context across sessions
-- Provides conversation and assistance
+**Date:** 2026-03-17
+
+This session fixed a critical circular reference bug in SelfDrivenNLP and enabled live LLM testing through the web UI.
+
+### The Problem
+
+SelfDrivenNLP was calling `localhost:8765/chat` (the local NLP service) which would wait for itself to respond, causing a deadlock and timeout. This resulted in hardcoded fallback responses instead of real LLM responses.
+
+### The Fix
+
+- Changed `ZoAIBridge` to connect directly to `https://api.zo.computer/zo/ask` instead of the local service
+- Added proper authorization using `ZO_CLIENT_IDENTITY_TOKEN`
+- Now all chat responses use real Zo AI LLM responses
+
+### What changed
+
+- `src/llm/__init__.py` - ZoAIBridge now calls Zo AI API directly with auth
+- Every feature can now be tested through the web UI with real LLM responses
+- No more hardcoded fallback responses in the chat flow
+
+### Validation
+
+```bash
+curl -X POST http://localhost:8765/chat -H "Content-Type: application/json" -d '{"message": "Hello!"}'
+# Returns: Real LLM response from Zo AI
+```
+
+### Live Testing
+
+You can now test PersonAI through the web UI at https://badlucksbane.zo.space/chat - every feature uses real LLM responses from Zo AI. This enables:
+- Testing as the user would experience it
+- Verifying all features with natural language
+- No more hardcoded test inputs
+
+---
 
 ## Session Engineering Notes (Compatibility Cleanup + Stability)
 

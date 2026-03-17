@@ -7,13 +7,14 @@ A self-improving AI assistant with autonomous capabilities, built on the PersonA
 ### 🎯 Direct Zo AI Bridge (CORE)
 **The heart of PersonAI** - SelfDrivenNLP is a direct bridge to Zo's native AI:
 
-- **NO FALLBACK**: Pure forward connection to Zo LLM - if the service is down, requests fail
-- **Self-Hosted**: Only connects to local Zo services - no external APIs
+- **NO FALLBACK**: Pure forward connection to Zo LLM API - if the API is down, requests fail
+- **Self-Hosted**: Connects directly to Zo's AI API - no external APIs, no middleman
 - **Real Intelligence**: Uses Zo's AI for natural language understanding - not hardcoded responses
 - **Pattern Learning**: Remembers conversation patterns for faster responses
+- **Live Testing**: Can be tested through the web UI - every feature uses real LLM responses
 
 ```
-User Query → SelfDrivenNLP → Local NLP Service → Zo AI
+User Query → SelfDrivenNLP → Zo AI API (https://api.zo.computer/zo/ask)
                                     ↓
                               NO FALLBACK
 ```

@@ -4,8 +4,7 @@ LLM Client - Self-Driven Zo AI Bridge
 This module provides a direct bridge to Zo's native AI capabilities.
 NO FALLBACK - pure forward connection to Zo LLM.
 
-The bridge connects to the local PersonAI NLP service which forwards
-to Zo's AI for natural, context-aware responses.
+The bridge connects to the Zo AI API for natural, context-aware responses.
 """
 
 import re
@@ -34,26 +33,38 @@ class ZoAIBridge:
     to Zo's LLM. No external providers, no fallback - pure Zo integration.
     """
     
-    def __init__(self, service_url: str = "http://localhost:8765"):
-        self.service_url = service_url
-        self.timeout = 30
+    def __init__(self):
+        self.api_url = "https://api.zo.computer/zo/ask"
+        self.timeout = 60
+        self._token = os.environ.get("ZO_CLIENT_IDENTITY_TOKEN", "")
         
     def _call_zo_ai(self, prompt: str, context: Dict[str, Any] = None) -> str:
         """
-        Direct call to Zo AI via local service.
-        NO FALLBACK - fails if service unavailable.
+        Direct call to Zo AI API - NO FALLBACK.
+        Fails if service unavailable.
         """
-        data = json.dumps({"message": prompt}).encode('utf-8')
+        data = json.dumps({
+            "input": prompt,
+            "model_name": "vercel:minimax/minimax-m2.5"
+        }).encode('utf-8')
+        
+        headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+        if self._token:
+            headers["Authorization"] = f"Bearer {self._token}"
+        
         req = urllib.request.Request(
-            f"{self.service_url}/chat",
+            self.api_url,
             data=data,
-            headers={"Content-Type": "application/json"},
+            headers=headers,
             method="POST"
         )
         
         with urllib.request.urlopen(req, timeout=self.timeout) as response:
             result = json.loads(response.read().decode('utf-8'))
-            return result.get('response', '')
+            return result.get('output', '')
 
 
 class SelfDrivenNLP:

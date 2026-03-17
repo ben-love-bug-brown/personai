@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 
-from ..llm import get_llm_client, Provider
+from ..llm import get_llm_client
 from ..memory import get_memory, MemoryCategory
 from ..core.state import get_state
 from ..self_improving.roadmap import get_roadmap
@@ -215,7 +215,7 @@ Respond as PersonAI - be concise, helpful, and contextually aware."""
         return {
             "sessions": len(self.sessions),
             "current_session": self.current_session_id,
-            "llm_provider": self.llm.provider.value if hasattr(self.llm.provider, 'value') else str(self.llm.provider),
+            "llm_provider": "self_driven_real_mode",
             "self_improver_active": self.runner.is_running,
             "cycles_completed": self.runner.cycles_completed,
             "roadmap_progress": self.roadmap.get_progress(),

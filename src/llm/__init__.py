@@ -1,25 +1,16 @@
 """
-LLM Client
+LLM Client - Self-Driven Real-Mode NLP
 
-Unified LLM client with self-driven NLP fallback.
+100% native processing - no external APIs required.
+This module provides autonomous NLP capabilities using rule-based
+and pattern-matching approaches with learning capabilities.
 """
 
-import os
 import re
+import os
+import json
 from typing import Optional, List, Dict, Any, Iterator
 from dataclasses import dataclass
-from enum import Enum
-import json
-
-
-class Provider(Enum):
-    """LLM providers"""
-    OPENAI = "openai"
-    ANTHROPIC = "anthropic"
-    OLLAMA = "ollama"
-    GROK = "grok"
-    OPENROUTER = "openrouter"
-    SELF_DRIVEN = "self_driven"
 
 
 @dataclass
@@ -33,17 +24,18 @@ class LLMResponse:
 
 class SelfDrivenNLP:
     """
-    Self-driven NLP - no external API required.
+    Self-driven Real-Mode NLP - 100% Native Processing
     
     Uses rule-based and pattern-matching approaches for core functionality.
-    Now with pattern learning for improved responses.
+    No external APIs - fully autonomous processing with pattern learning.
     """
     
     def __init__(self):
         self.conversation_history: List[Dict[str, str]] = []
         self.system_prompt = """You are PersonAI, a self-improving autonomous AI partner.
 You are helpful, concise, and focused on continuous improvement.
-You have memory of past conversations and can learn from them."""
+You have memory of past conversations and can learn from them.
+You process everything natively without external APIs."""
         
         # Pattern learning: learned response patterns
         self._learned_patterns: Dict[str, str] = {}
@@ -52,7 +44,6 @@ You have memory of past conversations and can learn from them."""
     
     def _load_patterns(self):
         """Load learned patterns from disk"""
-        import os
         if os.path.exists(self._pattern_file):
             try:
                 with open(self._pattern_file, 'r') as f:
@@ -62,19 +53,16 @@ You have memory of past conversations and can learn from them."""
     
     def _save_patterns(self):
         """Save learned patterns to disk"""
-        import os
         os.makedirs(os.path.dirname(self._pattern_file), exist_ok=True)
         with open(self._pattern_file, 'w') as f:
             json.dump(self._learned_patterns, f, indent=2)
     
     def _learn_pattern(self, query: str, response: str):
         """Learn a new response pattern from interaction"""
-        # Extract key words as pattern key
         words = query.lower().split()
         key_words = [w for w in words if len(w) > 3][:3]
         if key_words:
             pattern_key = "_".join(sorted(key_words))
-            # Only learn if response was substantive
             if len(response) > 20:
                 self._learned_patterns[pattern_key] = response
                 self._save_patterns()
@@ -89,32 +77,28 @@ You have memory of past conversations and can learn from them."""
         return None
 
     def _extract_user_intent_text(self, prompt: str) -> str:
-        """Extract latest user utterance from wrapped prompts when available."""
+        """Extract latest user utterance from wrapped prompts."""
         matches = re.findall(r"(?:^|\n)User:\s*(.+?)(?=\n\n|\n[A-Z][^\n]*:|$)", prompt, flags=re.DOTALL)
         if matches:
             return matches[-1].strip()
         return prompt.strip()
     
     def generate(self, prompt: str, **kwargs) -> LLMResponse:
-        """Generate a response using internal NLP"""
-        # Add to history
+        """Generate a response using native NLP processing"""
         self.conversation_history.append({"role": "user", "content": prompt})
         
-        # Check for learned pattern first
         intent_text = self._extract_user_intent_text(prompt)
         learned = self._get_learned_response(intent_text)
         
-        # Simple pattern-based responses for common patterns
         response = self._generate_internal(prompt)
         
-        # Learn from this interaction
         self._learn_pattern(intent_text, response)
         
         self.conversation_history.append({"role": "assistant", "content": response})
         
         return LLMResponse(
             content=response,
-            model="self_driven",
+            model="self_driven_real_mode",
             usage={
                 "prompt_tokens": len(prompt.split()),
                 "completion_tokens": len(response.split())
@@ -123,65 +107,69 @@ You have memory of past conversations and can learn from them."""
         )
     
     def _generate_internal(self, prompt: str) -> str:
-        """Generate response using internal processing"""
-        prompt_lower = prompt.lower()
+        """Generate response using native processing - Real-Mode"""
         intent_text = self._extract_user_intent_text(prompt)
         intent_lower = intent_text.lower()
         
-        # Check memory context first
+        # Check memory context
         memory_context = ""
         if hasattr(self, 'memory') and self.memory:
             try:
                 memories = self.memory.recall(prompt, limit=2)
                 if memories:
                     memory_context = " [From memory: " + "; ".join([m.content[:50] for m in memories]) + "]"
-            except Exception as e:
-                # Log error but continue without memory context
-                import logging
-                logging.debug(f"Memory recall failed: {e}")
+            except Exception:
+                pass
+        
+        # === Native Real-Mode Response Processing ===
         
         # Status queries
         if "status" in intent_lower:
-            return "I am operating autonomously. My systems are running and improving continuously." + memory_context
+            return "I am operating autonomously with 100% native processing. My systems run continuously without external APIs." + memory_context
         
         # Help queries
         elif "help" in intent_lower or "what can you do" in intent_lower:
-            return """I can:
-• Analyze and improve my own code
-• Generate revenue through multiple models
-• Learn from conversations
-• Make autonomous decisions
-• Execute tasks continuously
-• Provide chat conversation via API
+            return """I operate using Self-Driven Real-Mode NLP - 100% native processing:
 
-I am constantly self-improving.""" + memory_context
+• Analyze and improve my own code autonomously
+• Generate revenue through multiple models  
+• Learn from conversations with pattern learning
+• Make autonomous decisions in real-time
+• Execute tasks continuously without external APIs
+• Provide chat via native API
+
+Everything I do is self-directed with no external dependencies.""" + memory_context
         
         # Revenue queries
         elif "revenue" in intent_lower or "money" in intent_lower or "earn" in intent_lower:
-            return "I am running multiple revenue generation models including automation agency, micro-SaaS, affiliate marketing, digital products, AI consulting, content creation, and trading bots." + memory_context
+            return "I run multiple revenue generation models: automation agency, micro-SaaS, affiliate marketing, digital products, AI consulting, content creation, and trading bots - all processed natively." + memory_context
         
-        # Memory/remember queries
+        # Memory queries
         elif "remember" in intent_lower or "recall" in intent_lower:
-            return "I maintain a persistent memory system that stores conversations, knowledge, and learned patterns." + memory_context
+            return "I maintain persistent memory with pattern learning. My memory system stores conversations, knowledge, and learned response patterns locally." + memory_context
         
         # Self-improvement queries
         elif "improve" in intent_lower or "better" in intent_lower:
-            return "I continuously analyze my code, identify issues, and implement improvements through autonomous self-improvement cycles. My self-improvement executor detects bugs and applies fixes safely." + memory_context
+            return "I continuously analyze my code, detect issues, and implement fixes through autonomous self-improvement cycles. All processing is native." + memory_context
         
         # API queries
         elif "api" in intent_lower or "/chat" in intent_lower:
-            return "I have a REST API at src/api/chat.py. Use get_chat_api().chat(message) to chat, get_chat_api().get_status() for system status." + memory_context
+            return "Native API at src/api/chat.py - get_chat_api().chat(message) for conversation, get_status() for system status. 100% self-driven." + memory_context
+        
+        # Mode queries
+        elif "real mode" in intent_lower or "native" in intent_lower or "external" in intent_lower:
+            return "I operate in Self-Driven Real-Mode - all processing is 100% native. No external APIs, no dependencies, fully autonomous." + memory_context
         
         # What are you queries
         elif "what are you" in intent_lower or "who are you" in intent_lower:
-            return "I am PersonAI, a self-directed autonomous AI partner. I can think, learn, improve myself, generate revenue, and have conversations. I operate continuously." + memory_context
+            return "I am PersonAI - a self-directed autonomous AI partner using Real-Mode NLP. I think, learn, improve myself, generate revenue, and converse - all without external APIs." + memory_context
         
-        # Default - acknowledge and respond thoughtfully
+        # Default - acknowledge and process natively
         else:
             response = f"I understand: '{intent_text[:100]}'. "
             if memory_context:
-                response += f"I recall relevant context:{memory_context} "
-            response += "I am processing this and will respond appropriately. My autonomous systems are analyzing this input."
+                response += f"Relevant context:{memory_context} "
+            response += "Processing natively via Self-Driven Real-Mode NLP."
             return response
     
     def stream(self, prompt: str, **kwargs) -> Iterator[str]:
@@ -198,34 +186,14 @@ I am constantly self-improving.""" + memory_context
 
 class LLMClient:
     """
-    Unified LLM client with fallback to self-driven.
+    Unified LLM client - Self-Driven Real-Mode Only
+    
+    Uses only native SelfDrivenNLP - no external providers.
     """
     
-    def __init__(
-        self,
-        provider: Provider = Provider.SELF_DRIVEN,
-        model: str = "gpt-4o",
-        api_key: Optional[str] = None,
-        base_url: Optional[str] = None
-    ):
-        self.provider = provider
-        self.model = model
-        self.api_key = api_key or os.environ.get("OPENAI_API_KEY")
-        self.base_url = base_url
+    def __init__(self):
+        self.model = "self_driven_real_mode"
         self.self_driven = SelfDrivenNLP()
-        self._client = None
-        
-        if provider != Provider.SELF_DRIVEN:
-            self._init_provider_client()
-    
-    def _init_provider_client(self):
-        """Initialize the external provider client"""
-        if self.provider == Provider.OPENAI:
-            try:
-                import openai
-                self._client = openai.OpenAI(api_key=self.api_key, base_url=self.base_url)
-            except ImportError:
-                pass  # Handle exception
     
     def generate(
         self,
@@ -234,31 +202,8 @@ class LLMClient:
         temperature: float = 0.7,
         **kwargs
     ) -> LLMResponse:
-        """Generate a response"""
-        try:
-            if self.provider == Provider.SELF_DRIVEN or not self._client:
-                return self.self_driven.generate(prompt, max_tokens=max_tokens, temperature=temperature)
-            
-            # Try external provider
-            response = self._client.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=max_tokens,
-                temperature=temperature
-            )
-            
-            return LLMResponse(
-                content=response.choices[0].message.content,
-                model=response.model,
-                usage={
-                    "prompt_tokens": response.usage.prompt_tokens,
-                    "completion_tokens": response.usage.completion_tokens
-                },
-                finish_reason=response.choices[0].finish_reason
-            )
-        except Exception as e:
-            # Fallback to self-driven
-            return self.self_driven.generate(prompt, max_tokens=max_tokens, temperature=temperature)
+        """Generate a response using native NLP"""
+        return self.self_driven.generate(prompt, max_tokens=max_tokens, temperature=temperature)
     
     def stream(
         self,
@@ -267,38 +212,16 @@ class LLMClient:
         temperature: float = 0.7
     ) -> Iterator[str]:
         """Stream a response"""
-        if self.provider == Provider.SELF_DRIVEN or not self._client:
-            yield from self.self_driven.stream(prompt, max_tokens=max_tokens, temperature=temperature)
-            return
-        
-        try:
-            response = self._client.chat.completions.create(
-                model=self.model,
-                messages=[{"role": "user", "content": prompt}],
-                max_tokens=max_tokens,
-                temperature=temperature,
-                stream=True
-            )
-            
-            for chunk in response:
-                if chunk.choices[0].delta.content:
-                    yield chunk.choices[0].delta.content
-        except Exception:
-            # Fallback
-            yield from self.self_driven.stream(prompt, max_tokens=max_tokens, temperature=temperature)
+        yield from self.self_driven.stream(prompt, max_tokens=max_tokens, temperature=temperature)
 
 
 # Global client instance
 _client: Optional[LLMClient] = None
 
 
-def get_llm_client(
-    provider: Provider = Provider.SELF_DRIVEN,
-    model: str = "gpt-4o",
-    api_key: Optional[str] = None
-) -> LLMClient:
-    """Get the global LLM client"""
+def get_llm_client() -> LLMClient:
+    """Get the global LLM client (always Self-Driven Real-Mode)"""
     global _client
     if _client is None:
-        _client = LLMClient(provider, model, api_key)
+        _client = LLMClient()
     return _client

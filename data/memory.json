@@ -907,7 +907,21 @@
         "file": "/tmp/pytest-of-root/pytest-53/test_executor_apply_action_rep0/sample.py",
         "improvement": "replace first"
       }
+    },
+    {
+      "id": "cfe14c5a-6c2a-43ac-9312-6325eb3afd0d",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-54/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:41:48.396267",
+      "accessed_at": "2026-03-17T21:41:48.396267",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-54/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
     }
   ],
-  "saved_at": "2026-03-17T21:41:15.089547"
+  "saved_at": "2026-03-17T21:41:48.396567"
 }

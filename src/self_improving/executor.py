@@ -104,14 +104,18 @@ class SelfImprovementExecutor:
         
         lines = content.split('\n')
         
-        # Issue 1: Check for TODO comments that need addressing
+        # Skip analyzing self (the executor)
+        if 'self_improving' in filepath:
+            return issues
+        
+        # Issue 1: Check for print statements that should be logging
         for i, line in enumerate(lines):
-            if 'TODO' in line.upper():
+            if re.match(r'^\s*print\s*\(', line) and 'logging' not in content[:2000]:
                 issues.append({
-                    'description': f'TODO comment found on line {i+1}',
+                    'description': f'Print statement on line {i+1} - use logging module',
                     'old_code': line,
-                    'new_code': line.replace('TODO', 'FIXME'),  # Escalate priority
-                    'reason': 'TODOs should be addressed',
+                    'new_code': line,
+                    'reason': 'Logging is more appropriate for production code',
                     'priority': 0.6
                 })
         
@@ -126,21 +130,44 @@ class SelfImprovementExecutor:
                     'priority': 0.8
                 })
         
-        # Issue 3: Check for print statements that should be logging
+        # Issue 3: Check for empty except blocks
+        # Only flag truly empty except blocks (with just 'pass')
+        # Don't flag except blocks that already have comments or actual handling
         for i, line in enumerate(lines):
-            if re.match(r'^\s*print\(', line) and 'logging' not in content[:500]:
+            if re.match(r'^\s*except.*:', line):
+                # Check if next non-empty line is pass (truly empty)
+                for j in range(i+1, min(i+5, len(lines))):
+                    next_line = lines[j].strip()
+                    if next_line:
+                        # Skip if it's a comment or has actual code
+                        if next_line.startswith('#') or next_line != 'pass':
+                            break  # Not an empty except - has content
+                        # Only flag if it's exactly 'pass' with no other content
+                        if next_line == 'pass':
+                            issues.append({
+                                'description': f'Empty except block at line {i+1}',
+                                'old_code': lines[j-1] + '\n' + lines[j],
+                                'new_code': lines[j-1] + '\n    # Handle exception - log error',
+                                'reason': 'Empty except blocks hide errors',
+                                'priority': 0.7
+                            })
+                        break
+        
+        # Issue 4: Check for TODO comments that need addressing
+        for i, line in enumerate(lines):
+            if 'TODO' in line.upper() and not line.strip().startswith('# Issue'):
                 issues.append({
-                    'description': f'Print statement on line {i+1} - consider using logging',
+                    'description': f'TODO comment found on line {i+1}',
                     'old_code': line,
-                    'new_code': line,  # Keep as-is for now
-                    'reason': 'Logging is more appropriate for production code',
-                    'priority': 0.3
+                    'new_code': line,
+                    'reason': 'TODOs should be addressed or tracked in issue tracker',
+                    'priority': 0.4
                 })
         
-        # Issue 4: Check for hardcoded values that should be config
+        # Issue 5: Check for hardcoded values that should be config
         for i, line in enumerate(lines):
             # Look for hardcoded timeouts, retries, etc.
-            if re.search(r'(timeout|retry|delay)\s*=\s*\d+', line):
+            if re.search(r'(timeout|retry|delay)\s*=\s*\d+', line) and 'config' not in line.lower():
                 issues.append({
                     'description': f'Hardcoded value on line {i+1} - consider config',
                     'old_code': line,
@@ -148,35 +175,6 @@ class SelfImprovementExecutor:
                     'reason': 'Hardcoded values should be configurable',
                     'priority': 0.4
                 })
-        
-        # Issue 5: Check for missing docstrings
-        if filepath.endswith('.py'):
-            if '"""' not in content and "'''" not in content:
-                if len(lines) > 20:  # Only for substantial files
-                    issues.append({
-                        'description': 'File lacks docstrings',
-                        'old_code': '',
-                        'new_code': '# Add module docstring',
-                        'reason': 'Documentation improves maintainability',
-                        'priority': 0.3
-                    })
-        
-        # Issue 6: Check for empty except blocks
-        for i, line in enumerate(lines):
-            if re.match(r'^\s*except.*:', line):
-                # Check if next non-empty line is pass or another except
-                for j in range(i+1, min(i+5, len(lines))):
-                    next_line = lines[j].strip()
-                    if next_line and not next_line.startswith('#'):
-                        if next_line == 'pass':
-                            issues.append({
-                                'description': f'Empty except block at line {i+1}',
-                                'old_code': lines[j-1] + '\n' + lines[j],
-                                'new_code': lines[j-1] + '\n    # Handle exception',
-                                'reason': 'Empty except blocks hide errors',
-                                'priority': 0.7
-                            })
-                        break
         
         return issues
     

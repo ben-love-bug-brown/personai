@@ -1,140 +1,194 @@
 {
   "name": "PersonAI Master Roadmap",
-  "version": "2.0.0",
-  "last_synced": "2026-03-17T19:37:09.629841",
-  "source": "/home/workspace/personai/docs/ROADMAP.md",
+  "version": "3.0.0",
+  "last_synced": "2026-03-17T20:20:00.000000",
+  "source": "/home/workspace/personai/data/roadmap.json",
+  "description": "Single source of truth - consolidated from multiple files",
   "phases": [
     {
       "id": "phase1",
-      "name": "Foundation \u2705 COMPLETED",
-      "description": "",
+      "name": "Foundation",
+      "status": "completed",
+      "description": "Core infrastructure and basic functionality",
       "tasks": [
         {
           "id": "core_state_management",
           "name": "Core state management - Thread-safe AGI state with event system",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/core/state.py",
+          "tests": "tests/unit/test_state_manager.py"
         },
         {
           "id": "memory_system_persistent",
           "name": "Memory system - Persistent conversation storage",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/memory/__init__.py",
+          "tests": null
         },
         {
           "id": "self_driven_nlp",
           "name": "Self-driven NLP - Pure Python NLP without external APIs",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/llm/__init__.py",
+          "tests": "tests/advanced/test_llm_intent_parsing_advanced.py"
         },
         {
           "id": "agent_system_supervisor",
           "name": "Agent system - Supervisor, researcher, coder agents",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/agents/",
+          "tests": null
         },
         {
-          "id": "revenue_models_26",
-          "name": "Revenue models - 26 AI revenue models implemented",
-          "status": "completed"
+          "id": "revenue_models_7",
+          "name": "Revenue models - 7 core AI revenue models",
+          "status": "completed",
+          "file": "src/revenue/models/",
+          "tests": null
         },
         {
           "id": "self_improvement_engine",
           "name": "Self-improvement engine - Autonomous code improvement",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/self_improving/",
+          "tests": "tests/advanced/test_self_improving_advanced.py"
+        },
+        {
+          "id": "consciousness_heartbeat",
+          "name": "Consciousness/Heartbeat - Autonomous thinking system",
+          "status": "completed",
+          "file": "src/consciousness/heartbeat.py",
+          "tests": null
+        },
+        {
+          "id": "controller_main",
+          "name": "Main controller - Orchestration of all systems",
+          "status": "completed",
+          "file": "src/core/controller.py",
+          "tests": "tests/integration/test_controller_initialize.py"
         }
-      ],
-      "status": "pending"
+      ]
     },
     {
       "id": "phase2",
-      "name": "Planning & Roadmapping \u2705 COMPLETED",
-      "description": "",
+      "name": "Planning & Roadmapping",
+      "status": "completed",
+      "description": "Planning and roadmap management",
       "tasks": [
         {
           "id": "roadmap_tracker_json",
           "name": "Roadmap tracker - JSON-based progress tracking",
-          "status": "completed"
+          "status": "completed",
+          "file": "data/roadmap_progress.json",
+          "tests": "tests/unit/test_rolling_roadmap.py"
         },
         {
           "id": "planning_loop_main",
           "name": "Planning loop - Main execution loop",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/planning/loop.py",
+          "tests": null
         },
         {
           "id": "improvement_cycle_self",
           "name": "Improvement cycle - Self-improvement orchestration",
-          "status": "completed"
+          "status": "completed",
+          "file": "src/self_improving/runner.py",
+          "tests": null
+        },
+        {
+          "id": "pattern_learning",
+          "name": "Pattern learning - Self-improvement learns from interactions",
+          "status": "completed",
+          "file": "src/llm/__init__.py",
+          "data": "data/learned_patterns.json",
+          "tests": null
         }
-      ],
-      "status": "pending"
+      ]
     },
     {
       "id": "phase3",
-      "name": "Web UI & API \u2705 COMPLETED",
-      "description": "",
+      "name": "Web UI & API",
+      "status": "completed",
+      "description": "Web interface and REST API",
       "tasks": [
         {
-          "id": "web_chat_interface",
-          "name": "Web chat interface - Zo.space chat page",
-          "status": "completed"
+          "id": "rest_api_chat",
+          "name": "Chat API - /chat endpoint with session management",
+          "status": "completed",
+          "file": "src/api/chat.py",
+          "tests": null
         },
         {
-          "id": "rest_api_full",
-          "name": "REST API - Full CRUD operations",
-          "status": "completed"
+          "id": "rest_api_nlp",
+          "name": "NLP Service API - aiohttp web server",
+          "status": "completed",
+          "file": "src/api/nlp_service.py",
+          "tests": null
         },
         {
           "id": "persistent_history_json",
           "name": "Persistent history - JSON file storage",
-          "status": "completed"
+          "status": "completed",
+          "file": "data/memory.json",
+          "tests": null
         },
         {
-          "id": "service_manager_auto",
-          "name": "Service manager auto-start - Zo service integration",
-          "status": "completed"
+          "id": "cli_interface",
+          "name": "CLI interface - Command line tool",
+          "status": "completed",
+          "file": "src/cli/main.py",
+          "tests": "tests/advanced/test_executor_and_cli_advanced.py"
         },
         {
-          "id": "webui_service_status",
-          "name": "WebUI service status indicator - Real-time status",
-          "status": "completed"
-        },
-        {
-          "id": "webui_restart_button",
-          "name": "WebUI restart button - Service restart control",
-          "status": "completed"
+          "id": "web_chat_interface",
+          "name": "Web chat interface - Zo.space chat page",
+          "status": "completed",
+          "file": "zo.space route",
+          "tests": null
         }
-      ],
-      "status": "pending"
+      ]
     },
     {
       "id": "phase4",
-      "name": "Advanced Features \ud83d\udd04 IN PROGRESS",
-      "description": "",
+      "name": "Advanced Features",
+      "status": "in_progress",
+      "description": "Advanced AI capabilities",
       "tasks": [
         {
           "id": "llm_integration_connect",
           "name": "LLM integration - Connect to external LLM providers",
-          "status": "pending"
+          "status": "pending",
+          "file": "src/llm/__init__.py",
+          "notes": "OpenAI, Anthropic, Ollama, Grok, OpenRouter client support exists but not fully configured"
         },
         {
           "id": "autonomous_improvements_self",
           "name": "Autonomous improvements - Self-directed code enhancement",
-          "status": "pending"
+          "status": "in_progress",
+          "file": "src/self_improving/executor.py",
+          "notes": "Executor exists but needs more sophisticated analysis"
         },
         {
           "id": "enhanced_personalization_deeper",
           "name": "Enhanced personalization - Deeper user preference learning",
-          "status": "pending"
+          "status": "pending",
+          "file": "src/core/personalization.py",
+          "notes": "Basic personalization exists, needs enhancement"
         },
         {
           "id": "multi_modal_support",
           "name": "Multi-modal support - Image and audio processing",
-          "status": "pending"
+          "status": "pending",
+          "notes": "Not started"
         }
-      ],
-      "status": "pending"
+      ]
     },
     {
       "id": "phase5",
-      "name": "Next Generation \ud83d\udccb PENDING",
-      "description": "",
+      "name": "Next Generation",
+      "status": "pending",
+      "description": "Future capabilities",
       "tasks": [
         {
           "id": "advanced_reasoning_chain",
@@ -156,13 +210,32 @@
           "name": "Real-time adaptation - Live model updates",
           "status": "pending"
         }
-      ],
-      "status": "pending"
+      ]
     }
   ],
-  "total_tasks": 23,
-  "completed": 15,
-  "in_progress": 0,
-  "pending": 8,
-  "completion_percent": 65
+  "test_coverage": {
+    "total_tests": 17,
+    "test_files": [
+      "tests/unit/test_executor_analysis.py",
+      "tests/unit/test_rolling_roadmap.py",
+      "tests/unit/test_state_manager.py",
+      "tests/integration/test_controller_initialize.py",
+      "tests/advanced/test_executor_and_cli_advanced.py",
+      "tests/advanced/test_llm_intent_parsing_advanced.py",
+      "tests/advanced/test_phase3_claims_are_not_implemented.py",
+      "tests/advanced/test_roadmap_completion_verification.py",
+      "tests/advanced/test_self_improving_advanced.py"
+    ]
+  },
+  "data_files": {
+    "roadmap_progress": "data/roadmap_progress.json",
+    "memory": "data/memory.json",
+    "learned_patterns": "data/learned_patterns.json",
+    "revenue": "data/revenue/"
+  },
+  "total_tasks": 24,
+  "completed": 17,
+  "in_progress": 1,
+  "pending": 6,
+  "completion_percent": 71
 }

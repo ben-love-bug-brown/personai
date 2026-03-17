@@ -137,8 +137,15 @@ class ChatAPI:
         # Add user message
         session.messages.append(ChatMessage(role="user", content=message))
         
-        # Build context
+        # Build context from multiple sources
         context_parts = []
+        
+        # Add conversation history context (last 3 messages)
+        recent_msgs = [m for m in session.messages[-5:] if m.role != "system"]
+        if recent_msgs:
+            context_parts.append("Recent conversation:")
+            for m in recent_msgs[-3:]:
+                context_parts.append(f"  {m.role}: {m.content[:80]}")
         
         # Add relevant memories if enabled
         if use_memory:
@@ -146,20 +153,25 @@ class ChatAPI:
             if memories:
                 context_parts.append("Relevant memories:")
                 for m in memories:
-                    context_parts.append(f"- {m.content}")
+                    context_parts.append(f"- {m.content[:100]}")
         
-        # Add roadmap context
+        # Add roadmap context for awareness
         next_items = self.roadmap.get_next_items(2)
         if next_items:
             context_parts.append("Current priorities:")
             for item in next_items:
-                context_parts.append(f"- {item.task}")
+                context_parts.append(f"- {item.task[:80]}")
         
-        # Build the full prompt
+        # Build the full prompt with rich context
         system_context = "\n".join(context_parts) if context_parts else ""
         
         if system_context:
-            full_prompt = f"{system_context}\n\nUser: {message}\n\nRespond as PersonAI, be concise and helpful."
+            full_prompt = f"""Current context:
+{system_context}
+
+User: {message}
+
+Respond as PersonAI - be concise, helpful, and contextually aware."""
         else:
             full_prompt = message
         
@@ -180,7 +192,7 @@ class ChatAPI:
         # Store important info in memory
         if use_memory and len(message.split()) > 5:
             self.memory.memorize(
-                content=f"User said: {message[:200]}",
+                content=f"User discussed: {message[:200]}",
                 category=MemoryCategory.CONVERSATION,
                 importance=0.3
             )
@@ -190,7 +202,12 @@ class ChatAPI:
             "response": response_content,
             "model": response.model,
             "usage": response.usage,
-            "message_count": len(session.messages)
+            "message_count": len(session.messages),
+            "context_sources": {
+                "conversation_history": len(recent_msgs),
+                "memories": len(memories) if use_memory else 0,
+                "roadmap_items": len(next_items)
+            }
         }
     
     def get_status(self) -> Dict[str, Any]:

@@ -29,7 +29,7 @@ class MainLoop:
     
     def __init__(self, llm_client=None, memory=None):
         self.llm_client = llm_client or get_llm_client()
-        self.memory = memory or get_memory(self.llm_client)
+        self.memory = memory or get_memory()
         self.roadmap = get_roadmap()
         
         self.status = LoopStatus()
@@ -148,7 +148,9 @@ Respond helpfully as PersonAI."""
             
             # Generate response using LLM
             result = self.llm_client.generate(prompt)
-            return result.strip() if result else "I'm here to help!"
+            if hasattr(result, "content"):
+                return (result.content or "").strip() or "I'm here to help!"
+            return str(result).strip() or "I'm here to help!"
         except Exception as e:
             print(f"LLM error: {e}")
             return "I'm processing your message. How can I help you today?"

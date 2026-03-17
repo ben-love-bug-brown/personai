@@ -1,62 +1,90 @@
 # PersonAI 🤖
 
-A self-improving AI assistant with autonomous planning capabilities.
+Your personal AI assistant with self-improvement capabilities.
 
 ## Features
 
-- **Self-Driven NLP** - Pure Python LLM processing without external APIs
-- **Memory System** - Unified memory with categorization and retrieval
-- **Planning & Roadmapping** - Autonomous self-improvement with phase-based roadmap tracking
-- **Web UI** - Zo.space chat interface at https://badlucksbane.zo.space/chat
-- **REST API** - Full API at https://badlucksbane.zo.space/api/personai
-
-## Architecture
-
-```
-personai/
-├── src/
-│   ├── api/          # API services (nlp_service.py)
-│   ├── core/         # State management, personalization
-│   ├── llm/          # Self-driven NLP
-│   ├── memory/       # Unified memory system
-│   ├── planning/     # Roadmap and main loop
-│   ├── revenue/      # Revenue models
-│   └── self_improving/  # Self-improvement logic
-├── data/             # Persistent data (roadmap, profile, memory)
-└── tests/           # Test suite
-```
+- **Conversational AI** - Natural language chat with memory
+- **Self-Improvement** - Autonomous code analysis and improvement
+- **Personalization** - Learns your preferences and facts about you
+- **Roadmap Tracking** - Tracks project milestones
+- **Service Management** - Auto-start with web UI control
 
 ## Web Interface
 
-Chat with PersonAI at: **https://badlucksbane.zo.space/chat**
+**URL**: https://badlucksbane.zo.space/chat
+
+### Controls
+- Service status indicator (Online/Offline)
+- Restart button when service is down
+- Real-time message history
+- Roadmap progress display
 
 ## API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/personai` | POST | Send a chat message |
-| `/api/personai` | GET | Get status |
-| `/api/personai/history` | GET | Get conversation history |
-| `/api/personai/roadmap` | GET | Get roadmap status |
+| `/api/personai` | GET | Status, roadmap, message count |
+| `/api/personai?action=history` | GET | Conversation history |
+| `/api/personai` | POST | Send message |
+| `/api/personai?action=restart` | POST | Restart NLP service |
 
-## Local Development
+## Service Management
 
+The NLP service runs as a persistent service:
+- **Service ID**: `personai-nlp`
+- **Port**: 8765
+- **Auto-restart**: Enabled via Zo service manager
+
+### Manual Commands
 ```bash
-# Start NLP service
-cd /home/workspace/personai
-python -m src.api.nlp_service
+# Check service status
+curl http://localhost:8765/health
 
-# Run tests
-python -m pytest tests/
+# View logs
+tail -f /tmp/nlp_service.log
+
+# Restart service
+curl -X POST https://badlucksbane.zo.space/api/personai?action=restart
 ```
 
-## Roadmap Progress
+## Architecture
 
-- Phase 1: Foundation ✅ (4/4 tasks)
-- Phase 2: Planning & Roadmapping 🔄 (1/3 tasks)
-- Phase 3: Web UI & API ✅ (2/3 tasks)
-- Phase 4: Advanced Features ⏳ (0/2 tasks)
+```
+┌─────────────────┐     ┌──────────────────┐
+│   Web UI       │────▶│  zo.space API    │
+│  (React)       │     │  (TypeScript)    │
+└─────────────────┘     └────────┬─────────┘
+                                 │
+                                 ▼
+                        ┌──────────────────┐
+                        │  NLP Service     │
+                        │  (Python)        │
+                        │  - Memory        │
+                        │  - Planning      │
+                        │  - Self-Improve  │
+                        └──────────────────┘
+```
+
+## Roadmap
+
+- ✅ Phase 1: Foundation (Core, Memory, LLM)
+- 🔄 Phase 2: Planning (Roadmap, Self-Improvement)  
+- ✅ Phase 3: Web UI (Chat interface, API)
+- ⏳ Phase 4: Advanced (Autonomous agents, Plugins)
+
+## Development
+
+```bash
+# Run tests
+cd /home/workspace/personai
+pytest tests/ -v
+
+# Start service manually
+cd /home/workspace/personai
+python -m src.api.nlp_service
+```
 
 ## Version
 
-0.1.0 - Initial release with core functionality
+0.1.0 - Service Management Update

@@ -2,56 +2,41 @@
 
 A self-improving AI assistant with autonomous capabilities, built on the PersonAI framework.
 
-## Features
+## Core Features
 
-- **Self-Driven NLP**: Pure Python NLP without external APIs
-- **Memory System**: Persistent conversation memory
-- **Self-Improvement**: Autonomous code improvement with test validation
-- **User Personalization**: Learns user preferences
-- **Web UI**: Zo.space chat interface at https://badlucksbane.zo.space/chat
-- **REST API**: Full API at https://badlucksbane.zo.space/api/personai
-- **Service Management**: Auto-start via Zo service manager
+### 🎯 Direct Zo AI Bridge (CORE)
+**The heart of PersonAI** - SelfDrivenNLP is a direct bridge to Zo's native AI:
+
+- **NO FALLBACK**: Pure forward connection to Zo LLM - if the service is down, requests fail
+- **Self-Hosted**: Only connects to local Zo services - no external APIs
+- **Real Intelligence**: Uses Zo's AI for natural language understanding - not hardcoded responses
+- **Pattern Learning**: Remembers conversation patterns for faster responses
+
+```
+User Query → SelfDrivenNLP → Local NLP Service → Zo AI
+                                    ↓
+                              NO FALLBACK
+```
+
+### 🧠 Memory System
+Persistent conversation memory with semantic recall.
+
+### 🔄 Self-Improvement
+Autonomous code analysis, improvement, and test validation.
+
+### 👤 User Personalization
+Learns and adapts to user preferences over time.
+
+### 🌐 Interfaces
+- **Web UI**: https://badlucksbane.zo.space/chat
+- **REST API**: https://badlucksbane.zo.space/api/personai
+- **Service**: Auto-started via Zo service manager
 
 ## Status (2026-03-17)
 
 - **Tests**: 44/44 passing
-- **Self-Improvement Cycles**: 23 completed, 22 improvements applied
-- **Phase**: 4 - Deep Native Autonomy (in progress) - 62% complete
-
-## Recent Improvements
-
-- Enhanced NLP with dynamic semantic response generation (no hardcoded responses)
-- Deep code analysis: complexity detection, duplication detection, hotspot identification
-- Self-improvement executor analyzes code complexity patterns
-- All improvements validated by running test suite before committing
-- Failed changes automatically reverted if tests fail
-
-## Roadmap Progress
-
-| Phase | Name | Status |
-|-------|------|--------|
-| Phase 1 | Foundation | ✅ Complete |
-| Phase 2 | Planning & Roadmapping | ✅ Complete |
-| Phase 3 | Web UI & API | ✅ Complete |
-| Phase 4 | Deep Native Autonomy | 🔄 In Progress |
-| Phase 5 | Always-On Revenue Operator | 📋 Pending |
-| Phase 6 | Autonomous Verification & Docs | 📋 Pending |
-
-### Phase 3 Completed Tasks
-- Web chat interface
-- REST API
-- Persistent history
-- Service manager auto-start
-
-### Phase 4 In Progress
-- Enhanced native pattern learning
-- Autonomous code analysis
-- Deep personalization
-- Autonomous goal setting
-
-### Dream State
-- Always-on autonomous operator (self-improves, optimizes revenue, and transfers learning across modules)
-- 100% native processing without external model APIs
+- **Self-Improvement Cycles**: 27 completed
+- **Phase**: 4 - Deep Native Autonomy (in progress) - 65% complete
 
 ## Quick Start
 
@@ -69,8 +54,8 @@ python -m pytest -q tests/
 ## API Endpoints
 
 - `GET /api/personai` - Status + roadmap
+- `POST /api/personai` - Send message (body: {"message": "your text"})
 - `GET /api/personai?action=history` - Conversation history
-- `POST /api/personai` - Send message
 
 ## Web Interface
 

@@ -25,7 +25,7 @@ class TestSelfDrivenNLPBasics:
         assert hasattr(response, 'content')
         assert hasattr(response, 'model')
         assert hasattr(response, 'usage')
-        assert response.model == "self_driven_real_mode"
+        assert response.model == "zo_ai_bridge"
     
     def test_conversation_history_tracking(self):
         """Test conversation history is tracked"""
@@ -183,7 +183,7 @@ class TestGetLLMClient:
         client = get_llm_client()
         response = client.generate("test")
         
-        assert response.model == "self_driven_real_mode"
+        assert response.model == "zo_ai_bridge"
 
 
 class TestMemoryIntegration:

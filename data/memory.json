@@ -442,8 +442,8 @@
       "category": "conversation",
       "importance": 0.3,
       "created_at": "2026-03-17T20:32:16.872173",
-      "accessed_at": "2026-03-17T21:41:15.057957",
-      "access_count": 4,
+      "accessed_at": "2026-03-17T21:56:14.171401",
+      "access_count": 5,
       "metadata": {}
     },
     {
@@ -921,7 +921,259 @@
         "file": "/tmp/pytest-of-root/pytest-54/test_executor_apply_action_rep0/sample.py",
         "improvement": "replace first"
       }
+    },
+    {
+      "id": "cf3f59bf-0a18-4d92-8f18-8ab334c5fb4a",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-55/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:45:52.331373",
+      "accessed_at": "2026-03-17T21:45:52.331373",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-55/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "07fcb12f-5ea2-4404-a413-a35803c4da68",
+      "content": "Applied improvement: High complexity function \"chat\" (score: 21) - consider refactoring to /home/workspace/personai/src/api/chat.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:46:29.703578",
+      "accessed_at": "2026-03-17T21:46:29.703578",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "e3ffeb4f-4302-4ddc-b673-9f56d09f36ce",
+        "file": "/home/workspace/personai/src/api/chat.py",
+        "improvement": "High complexity function \"chat\" (score: 21) - consider refactoring"
+      }
+    },
+    {
+      "id": "f384ecb2-36fa-43c8-aaef-9efa43eae932",
+      "content": "Applied improvement: High complexity function \"_load_data\" (score: 12) - consider refactoring to /home/workspace/personai/src/revenue/models/automation_agency.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:46:29.705207",
+      "accessed_at": "2026-03-17T21:46:29.705207",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "c808566c-ba7a-4907-aa99-8445e7fd1216",
+        "file": "/home/workspace/personai/src/revenue/models/automation_agency.py",
+        "improvement": "High complexity function \"_load_data\" (score: 12) - consider refactoring"
+      }
+    },
+    {
+      "id": "58b5ae86-dec7-4736-8ff2-43c0ba6aa42b",
+      "content": "Applied improvement: High complexity function \"execute\" (score: 11) - consider refactoring to /home/workspace/personai/src/revenue/models/automation_agency.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:46:29.707353",
+      "accessed_at": "2026-03-17T21:46:29.707353",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "1e5b6c55-9935-4531-836b-570c5dece98e",
+        "file": "/home/workspace/personai/src/revenue/models/automation_agency.py",
+        "improvement": "High complexity function \"execute\" (score: 11) - consider refactoring"
+      }
+    },
+    {
+      "id": "eef9bc43-5fad-40f3-bd2d-d06fcd79ce7c",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-56/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:46:30.237115",
+      "accessed_at": "2026-03-17T21:46:30.237115",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-56/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "b4f3ce35-54ad-41e7-bac0-16ea926d9db9",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-57/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:46:36.948319",
+      "accessed_at": "2026-03-17T21:46:36.948319",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-57/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "890d7e24-0886-4d4f-83ca-139427f13dfe",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-58/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:54:53.287502",
+      "accessed_at": "2026-03-17T21:54:53.287502",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-58/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "fe20a9f4-c10a-49d8-83d5-ee8db56ee5de",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-59/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:55:01.782242",
+      "accessed_at": "2026-03-17T21:55:01.782242",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-59/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "fcf46e73-72c6-4b34-8534-8cf276fd8d16",
+      "content": "Applied improvement: High complexity function \"chat\" (score: 21) - consider refactoring to /home/workspace/personai/src/api/chat.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:56:03.471809",
+      "accessed_at": "2026-03-17T21:56:03.471809",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "d8eb3beb-0908-48ff-a72d-32bc616c1325",
+        "file": "/home/workspace/personai/src/api/chat.py",
+        "improvement": "High complexity function \"chat\" (score: 21) - consider refactoring"
+      }
+    },
+    {
+      "id": "e49ea302-c05d-4604-bee8-9d0bcb1351c9",
+      "content": "Applied improvement: High complexity function \"_load_data\" (score: 12) - consider refactoring to /home/workspace/personai/src/revenue/models/automation_agency.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:56:03.473554",
+      "accessed_at": "2026-03-17T21:56:03.473554",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "91014236-3860-4517-9703-b5c5d25a8851",
+        "file": "/home/workspace/personai/src/revenue/models/automation_agency.py",
+        "improvement": "High complexity function \"_load_data\" (score: 12) - consider refactoring"
+      }
+    },
+    {
+      "id": "4efbda2c-f8ca-442a-a0e5-747a100e6bd7",
+      "content": "Applied improvement: High complexity function \"execute\" (score: 11) - consider refactoring to /home/workspace/personai/src/revenue/models/automation_agency.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:56:03.475706",
+      "accessed_at": "2026-03-17T21:56:14.171403",
+      "access_count": 1,
+      "metadata": {
+        "action_id": "c506ba0c-2039-4186-89f4-c8969a3f8bc6",
+        "file": "/home/workspace/personai/src/revenue/models/automation_agency.py",
+        "improvement": "High complexity function \"execute\" (score: 11) - consider refactoring"
+      }
+    },
+    {
+      "id": "b88e4e66-49ea-40bf-9c66-fc006f943a24",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-60/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:56:03.969394",
+      "accessed_at": "2026-03-17T21:56:14.171403",
+      "access_count": 1,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-60/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "1b12c856-a42a-45d0-b63a-4fc746826427",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-61/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:58:34.012234",
+      "accessed_at": "2026-03-17T21:58:34.012234",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-61/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "9588e2e9-000c-4aa6-8e5e-18dd6b7824c3",
+      "content": "Applied improvement: High complexity function \"chat\" (score: 21) - consider refactoring to /home/workspace/personai/src/api/chat.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:59:12.092548",
+      "accessed_at": "2026-03-17T21:59:12.092548",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "9d9cf424-f208-4181-bfa5-c8b4ad410f40",
+        "file": "/home/workspace/personai/src/api/chat.py",
+        "improvement": "High complexity function \"chat\" (score: 21) - consider refactoring"
+      }
+    },
+    {
+      "id": "43dd5e8b-c3b7-4e29-8526-9ba66868b99a",
+      "content": "Applied improvement: High complexity function \"_load_data\" (score: 12) - consider refactoring to /home/workspace/personai/src/revenue/models/automation_agency.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:59:12.094409",
+      "accessed_at": "2026-03-17T21:59:12.094409",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "cfce918e-a3b6-4e54-9bf7-bb77e97fe634",
+        "file": "/home/workspace/personai/src/revenue/models/automation_agency.py",
+        "improvement": "High complexity function \"_load_data\" (score: 12) - consider refactoring"
+      }
+    },
+    {
+      "id": "31402106-241e-4ec4-b27d-89f8a2c695c6",
+      "content": "Applied improvement: High complexity function \"execute\" (score: 11) - consider refactoring to /home/workspace/personai/src/revenue/models/automation_agency.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:59:12.096558",
+      "accessed_at": "2026-03-17T21:59:12.096558",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "729225f4-fcbf-4737-a6bc-03bf5980d998",
+        "file": "/home/workspace/personai/src/revenue/models/automation_agency.py",
+        "improvement": "High complexity function \"execute\" (score: 11) - consider refactoring"
+      }
+    },
+    {
+      "id": "ddfc0635-4d55-47ee-863b-1fc63fc7846d",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-62/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:59:12.580395",
+      "accessed_at": "2026-03-17T21:59:12.580395",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-62/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
+    },
+    {
+      "id": "3cd2a303-06a2-452e-8619-392457b224cd",
+      "content": "Applied improvement: replace first to /tmp/pytest-of-root/pytest-63/test_executor_apply_action_rep0/sample.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T21:59:17.364500",
+      "accessed_at": "2026-03-17T21:59:17.364500",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "a2",
+        "file": "/tmp/pytest-of-root/pytest-63/test_executor_apply_action_rep0/sample.py",
+        "improvement": "replace first"
+      }
     }
   ],
-  "saved_at": "2026-03-17T21:41:48.396567"
+  "saved_at": "2026-03-17T21:59:17.364855"
 }

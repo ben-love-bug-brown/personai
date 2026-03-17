@@ -1,0 +1,94 @@
+{
+  "links": [
+    {
+      "id": "link_0",
+      "product": "ChatGPT Plus",
+      "network": "openai",
+      "url": "https://openai.com/ref/chatgptplus",
+      "clicks": 18,
+      "conversions": 1,
+      "earnings": 19.526668313216465
+    },
+    {
+      "id": "link_1",
+      "product": "Claude Pro",
+      "network": "anthropic",
+      "url": "https://anthropic.com/ref/claudepro",
+      "clicks": 3,
+      "conversions": 0,
+      "earnings": 0.0
+    },
+    {
+      "id": "link_2",
+      "product": "Notion",
+      "network": "affiliate",
+      "url": "https://affiliate.com/ref/notion",
+      "clicks": 1,
+      "conversions": 0,
+      "earnings": 0.0
+    },
+    {
+      "id": "link_3",
+      "product": "Canva",
+      "network": "affiliate",
+      "url": "https://affiliate.com/ref/canva",
+      "clicks": 30,
+      "conversions": 1,
+      "earnings": 17.667237151647896
+    },
+    {
+      "id": "link_4",
+      "product": "Shopify",
+      "network": "affiliate",
+      "url": "https://affiliate.com/ref/shopify",
+      "clicks": 36,
+      "conversions": 2,
+      "earnings": 38.12166718854804
+    },
+    {
+      "id": "link_0",
+      "product": "ChatGPT Plus",
+      "network": "openai",
+      "url": "https://openai.com/ref/chatgptplus",
+      "clicks": 33,
+      "conversions": 2,
+      "earnings": 27.161258652374038
+    },
+    {
+      "id": "link_1",
+      "product": "Claude Pro",
+      "network": "anthropic",
+      "url": "https://anthropic.com/ref/claudepro",
+      "clicks": 4,
+      "conversions": 0,
+      "earnings": 0.0
+    },
+    {
+      "id": "link_2",
+      "product": "Notion",
+      "network": "affiliate",
+      "url": "https://affiliate.com/ref/notion",
+      "clicks": 9,
+      "conversions": 0,
+      "earnings": 0.0
+    },
+    {
+      "id": "link_3",
+      "product": "Canva",
+      "network": "affiliate",
+      "url": "https://affiliate.com/ref/canva",
+      "clicks": 28,
+      "conversions": 0,
+      "earnings": 0.0
+    },
+    {
+      "id": "link_4",
+      "product": "Shopify",
+      "network": "affiliate",
+      "url": "https://affiliate.com/ref/shopify",
+      "clicks": 35,
+      "conversions": 2,
+      "earnings": 22.681560171310743
+    }
+  ]
+}

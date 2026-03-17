@@ -1,0 +1,132 @@
+{
+  "consultants": [
+    {
+      "id": "consultant_0",
+      "name": "AI Strategy",
+      "expertise": "AI Strategy",
+      "hourly_rate": 200,
+      "projects_completed": 0,
+      "rating": 4.832059643804303
+    },
+    {
+      "id": "consultant_1",
+      "name": "Machine Learning Implementation",
+      "expertise": "Machine Learning Implementation",
+      "hourly_rate": 250,
+      "projects_completed": 0,
+      "rating": 4.555767507973897
+    },
+    {
+      "id": "consultant_2",
+      "name": "NLP Solutions",
+      "expertise": "NLP Solutions",
+      "hourly_rate": 225,
+      "projects_completed": 0,
+      "rating": 4.53835042492635
+    },
+    {
+      "id": "consultant_3",
+      "name": "Computer Vision",
+      "expertise": "Computer Vision",
+      "hourly_rate": 275,
+      "projects_completed": 0,
+      "rating": 4.978495117858403
+    },
+    {
+      "id": "consultant_4",
+      "name": "Process Automation",
+      "expertise": "Process Automation",
+      "hourly_rate": 175,
+      "projects_completed": 0,
+      "rating": 4.925947491507842
+    },
+    {
+      "id": "consultant_5",
+      "name": "AI Ethics & Governance",
+      "expertise": "AI Ethics & Governance",
+      "hourly_rate": 200,
+      "projects_completed": 0,
+      "rating": 4.5953884138289895
+    },
+    {
+      "id": "consultant_6",
+      "name": "Data Strategy",
+      "expertise": "Data Strategy",
+      "hourly_rate": 225,
+      "projects_completed": 0,
+      "rating": 4.77003791472087
+    },
+    {
+      "id": "consultant_7",
+      "name": "LLM Implementation",
+      "expertise": "LLM Implementation",
+      "hourly_rate": 300,
+      "projects_completed": 0,
+      "rating": 4.842928183945986
+    },
+    {
+      "id": "consultant_0",
+      "name": "AI Strategy",
+      "expertise": "AI Strategy",
+      "hourly_rate": 200,
+      "projects_completed": 0,
+      "rating": 4.832059643804303
+    },
+    {
+      "id": "consultant_1",
+      "name": "Machine Learning Implementation",
+      "expertise": "Machine Learning Implementation",
+      "hourly_rate": 250,
+      "projects_completed": 0,
+      "rating": 4.555767507973897
+    },
+    {
+      "id": "consultant_2",
+      "name": "NLP Solutions",
+      "expertise": "NLP Solutions",
+      "hourly_rate": 225,
+      "projects_completed": 0,
+      "rating": 4.53835042492635
+    },
+    {
+      "id": "consultant_3",
+      "name": "Computer Vision",
+      "expertise": "Computer Vision",
+      "hourly_rate": 275,
+      "projects_completed": 0,
+      "rating": 4.978495117858403
+    },
+    {
+      "id": "consultant_4",
+      "name": "Process Automation",
+      "expertise": "Process Automation",
+      "hourly_rate": 175,
+      "projects_completed": 0,
+      "rating": 4.925947491507842
+    },
+    {
+      "id": "consultant_5",
+      "name": "AI Ethics & Governance",
+      "expertise": "AI Ethics & Governance",
+      "hourly_rate": 200,
+      "projects_completed": 0,
+      "rating": 4.5953884138289895
+    },
+    {
+      "id": "consultant_6",
+      "name": "Data Strategy",
+      "expertise": "Data Strategy",
+      "hourly_rate": 225,
+      "projects_completed": 0,
+      "rating": 4.77003791472087
+    },
+    {
+      "id": "consultant_7",
+      "name": "LLM Implementation",
+      "expertise": "LLM Implementation",
+      "hourly_rate": 300,
+      "projects_completed": 0,
+      "rating": 4.842928183945986
+    }
+  ]
+}

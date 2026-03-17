@@ -289,7 +289,125 @@
         "file": "/home/workspace/personai/src/core/state.py",
         "improvement": "Empty except block at line 139"
       }
+    },
+    {
+      "id": "cbb4946c-3f5c-4036-a71b-b31563de5079",
+      "content": "Applied improvement: Empty except block at line 241 to /home/workspace/personai/src/self_improving/executor.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:04:04.411583",
+      "accessed_at": "2026-03-17T18:04:04.411583",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "9af18f07-f134-4326-b0f9-bbe5f5cbedc1",
+        "file": "/home/workspace/personai/src/self_improving/executor.py",
+        "improvement": "Empty except block at line 241"
+      }
+    },
+    {
+      "id": "af7c7cdf-7175-4597-bd91-be8cf765d79e",
+      "content": "Applied improvement: Empty except block at line 52 to /home/workspace/personai/src/self_improving/roadmap.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:04:04.412579",
+      "accessed_at": "2026-03-17T18:04:04.412579",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "30c802f9-1e4b-4e72-b347-d9f883337d33",
+        "file": "/home/workspace/personai/src/self_improving/roadmap.py",
+        "improvement": "Empty except block at line 52"
+      }
+    },
+    {
+      "id": "5e583879-ecd1-4d74-8940-60194bfc4ebf",
+      "content": "Applied improvement: Empty except block at line 84 to /home/workspace/personai/src/consciousness/heartbeat.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:04:04.413575",
+      "accessed_at": "2026-03-17T18:04:04.413575",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "07be9cee-d54e-4d03-b66c-c07d3e1ba116",
+        "file": "/home/workspace/personai/src/consciousness/heartbeat.py",
+        "improvement": "Empty except block at line 84"
+      }
+    },
+    {
+      "id": "57e4322b-a9a6-4017-9387-9378f388f114",
+      "content": "Applied improvement: Empty except block at line 52 to /home/workspace/personai/src/self_improving/roadmap.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:08:23.834822",
+      "accessed_at": "2026-03-17T18:14:24.437840",
+      "access_count": 1,
+      "metadata": {
+        "action_id": "b228377e-b1e3-44d3-8d53-7735cd1a989b",
+        "file": "/home/workspace/personai/src/self_improving/roadmap.py",
+        "improvement": "Empty except block at line 52"
+      }
+    },
+    {
+      "id": "a7acae98-faff-4d06-9fcb-856d987f6bf9",
+      "content": "Applied improvement: Empty except block at line 84 to /home/workspace/personai/src/consciousness/heartbeat.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:08:23.835702",
+      "accessed_at": "2026-03-17T18:14:24.437840",
+      "access_count": 1,
+      "metadata": {
+        "action_id": "02c0e0b6-cb16-4744-9820-30a3c80e9284",
+        "file": "/home/workspace/personai/src/consciousness/heartbeat.py",
+        "improvement": "Empty except block at line 84"
+      }
+    },
+    {
+      "id": "9e9cffde-029a-4364-95c3-db1889041d95",
+      "content": "Applied improvement: Empty except block at line 88 to /home/workspace/personai/src/memory/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:08:23.836770",
+      "accessed_at": "2026-03-17T18:14:24.437839",
+      "access_count": 1,
+      "metadata": {
+        "action_id": "63ac7ab2-7325-41c2-8b80-253cb86f19c5",
+        "file": "/home/workspace/personai/src/memory/__init__.py",
+        "improvement": "Empty except block at line 88"
+      }
+    },
+    {
+      "id": "0a426a68-58e2-40b6-b990-f61a67ddbe99",
+      "content": "Applied improvement: Hardcoded value on line 69 - consider config to /home/workspace/personai/src/consciousness/heartbeat.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:13:08.646158",
+      "accessed_at": "2026-03-17T18:14:24.437839",
+      "access_count": 1,
+      "metadata": {
+        "action_id": "8adc031a-a231-4f85-b493-f8cf14854297",
+        "file": "/home/workspace/personai/src/consciousness/heartbeat.py",
+        "improvement": "Hardcoded value on line 69 - consider config"
+      }
+    },
+    {
+      "id": "d0a87fcc-e639-4dc0-aec7-2f23fa933d62",
+      "content": "Test memory for self-improvement cycle",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T18:14:24.436876",
+      "accessed_at": "2026-03-17T18:14:24.437838",
+      "access_count": 1,
+      "metadata": {}
+    },
+    {
+      "id": "d86d5e98-6927-4c1c-8920-b6780fa619ac",
+      "content": "Test memory",
+      "category": "conversation",
+      "importance": 0.5,
+      "created_at": "2026-03-17T18:43:49.482888",
+      "accessed_at": "2026-03-17T18:43:49.482888",
+      "access_count": 0,
+      "metadata": {}
     }
   ],
-  "saved_at": "2026-03-17T17:28:56.819758"
+  "saved_at": "2026-03-17T18:43:49.483041"
 }

@@ -1,0 +1,112 @@
+{
+  "content": [
+    {
+      "id": "content_0",
+      "title": "AI Tools Review 2024",
+      "platform": "youtube",
+      "type": "video",
+      "status": "published",
+      "views": 1457,
+      "engagement": 0.04072263359922078,
+      "monetization": 4.10375108307421
+    },
+    {
+      "id": "content_1",
+      "title": "Weekly AI Newsletter",
+      "platform": "newsletter",
+      "type": "article",
+      "status": "published",
+      "views": 3751,
+      "engagement": 0.05543317598503351,
+      "monetization": 55.464081033488064
+    },
+    {
+      "id": "content_2",
+      "title": "Prompt Engineering Tips",
+      "platform": "twitter",
+      "type": "thread",
+      "status": "published",
+      "views": 5601,
+      "engagement": 0.035525724521998835,
+      "monetization": 1.0704
+    },
+    {
+      "id": "content_3",
+      "title": "AI Business Guide",
+      "platform": "blog",
+      "type": "article",
+      "status": "published",
+      "views": 6923,
+      "engagement": 0.05212992361210012,
+      "monetization": 6.155
+    },
+    {
+      "id": "content_1773771257.756058",
+      "title": "AI Industry Roundup",
+      "platform": "newsletter",
+      "type": "article",
+      "status": "published",
+      "views": 112,
+      "engagement": 0.008375492282414599,
+      "monetization": 64.1345814882406
+    },
+    {
+      "id": "content_0",
+      "title": "AI Tools Review 2024",
+      "platform": "youtube",
+      "type": "video",
+      "status": "published",
+      "views": 1486,
+      "engagement": 0.05704277595049084,
+      "monetization": 3.962442903551329
+    },
+    {
+      "id": "content_1",
+      "title": "Weekly AI Newsletter",
+      "platform": "newsletter",
+      "type": "article",
+      "status": "published",
+      "views": 3162,
+      "engagement": 0.04422275682698271,
+      "monetization": 40.485066815277094
+    },
+    {
+      "id": "content_2",
+      "title": "Prompt Engineering Tips",
+      "platform": "twitter",
+      "type": "thread",
+      "status": "published",
+      "views": 6332,
+      "engagement": 0.04572055657845625,
+      "monetization": 1.1435
+    },
+    {
+      "id": "content_3",
+      "title": "AI Business Guide",
+      "platform": "blog",
+      "type": "article",
+      "status": "published",
+      "views": 6264,
+      "engagement": 0.03230867712543242,
+      "monetization": 5.8255
+    },
+    {
+      "id": "content_1773771257.756058",
+      "title": "AI Industry Roundup",
+      "platform": "newsletter",
+      "type": "article",
+      "status": "draft",
+      "views": 0,
+      "engagement": 0.0,
+      "monetization": 0.0
+    }
+  ],
+  "subscribers": {
+    "youtube": 144,
+    "newsletter": 4696,
+    "blog": 4322,
+    "twitter": 1230,
+    "tiktok": 2027
+  },
+  "sponsorships": []
+}

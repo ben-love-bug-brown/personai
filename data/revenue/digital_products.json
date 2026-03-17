@@ -8,8 +8,8 @@
       "price": 29.99,
       "marketplace": "gumroad",
       "status": "published",
-      "sales_count": 0,
-      "rating": 0.0
+      "sales_count": 4,
+      "rating": 1.15791973127664
     },
     {
       "id": "dp_1",
@@ -19,8 +19,8 @@
       "price": 19.99,
       "marketplace": "gumroad",
       "status": "published",
-      "sales_count": 0,
-      "rating": 0.0
+      "sales_count": 10,
+      "rating": 1.0
     },
     {
       "id": "dp_2",
@@ -30,8 +30,8 @@
       "price": 99.99,
       "marketplace": "gumroad",
       "status": "published",
-      "sales_count": 0,
-      "rating": 0.0
+      "sales_count": 3,
+      "rating": 1.0
     },
     {
       "id": "dp_3",
@@ -41,8 +41,140 @@
       "price": 9.99,
       "marketplace": "gumroad",
       "status": "published",
-      "sales_count": 0,
-      "rating": 0.0
+      "sales_count": 2,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_0",
+      "name": "AI Prompt Master Bundle",
+      "type": "prompt_pack",
+      "description": "Ultimate collection of AI prompts",
+      "price": 29.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 5,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_1",
+      "name": "Notion Productivity Pack",
+      "type": "template",
+      "description": "Complete workspace templates",
+      "price": 19.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 4,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_2",
+      "name": "ChatGPT for Business",
+      "type": "course",
+      "description": "Video course on AI for business",
+      "price": 99.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 5,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_3",
+      "name": "2024 AI Trends Ebook",
+      "type": "ebook",
+      "description": "Comprehensive guide to AI trends",
+      "price": 9.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 5,
+      "rating": 1.0200309568592725
+    },
+    {
+      "id": "dp_0",
+      "name": "AI Prompt Master Bundle",
+      "type": "prompt_pack",
+      "description": "Ultimate collection of AI prompts",
+      "price": 29.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 7,
+      "rating": 1.0589169939644425
+    },
+    {
+      "id": "dp_1",
+      "name": "Notion Productivity Pack",
+      "type": "template",
+      "description": "Complete workspace templates",
+      "price": 19.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 8,
+      "rating": 1.0117247256078485
+    },
+    {
+      "id": "dp_2",
+      "name": "ChatGPT for Business",
+      "type": "course",
+      "description": "Video course on AI for business",
+      "price": 99.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 6,
+      "rating": 1.0673338291417154
+    },
+    {
+      "id": "dp_3",
+      "name": "2024 AI Trends Ebook",
+      "type": "ebook",
+      "description": "Comprehensive guide to AI trends",
+      "price": 9.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 1,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_0",
+      "name": "AI Prompt Master Bundle",
+      "type": "prompt_pack",
+      "description": "Ultimate collection of AI prompts",
+      "price": 29.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 8,
+      "rating": 1.061921563906628
+    },
+    {
+      "id": "dp_1",
+      "name": "Notion Productivity Pack",
+      "type": "template",
+      "description": "Complete workspace templates",
+      "price": 19.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 2,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_2",
+      "name": "ChatGPT for Business",
+      "type": "course",
+      "description": "Video course on AI for business",
+      "price": 99.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 2,
+      "rating": 1.0
+    },
+    {
+      "id": "dp_3",
+      "name": "2024 AI Trends Ebook",
+      "type": "ebook",
+      "description": "Comprehensive guide to AI trends",
+      "price": 9.99,
+      "marketplace": "gumroad",
+      "status": "published",
+      "sales_count": 4,
+      "rating": 1.1516603486614858
     }
   ]
 }

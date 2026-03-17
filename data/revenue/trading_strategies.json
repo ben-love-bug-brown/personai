@@ -1,0 +1,84 @@
+{
+  "strategies": [
+    {
+      "id": "strat_0",
+      "name": "Momentum Crypto",
+      "description": "Trend following on crypto",
+      "asset_class": "crypto",
+      "status": "inactive",
+      "win_rate": 0.5579622068172989,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_1",
+      "name": "Mean Reversion",
+      "description": "Buy dips, sell peaks",
+      "asset_class": "stocks",
+      "status": "inactive",
+      "win_rate": 0.5120755814263277,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_2",
+      "name": "Breakout Strategy",
+      "description": "Trade breakouts",
+      "asset_class": "forex",
+      "status": "inactive",
+      "win_rate": 0.5621371916818695,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_3",
+      "name": "AI Signal",
+      "description": "ML-based signals",
+      "asset_class": "crypto",
+      "status": "inactive",
+      "win_rate": 0.6674998768783094,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_0",
+      "name": "Momentum Crypto",
+      "description": "Trend following on crypto",
+      "asset_class": "crypto",
+      "status": "inactive",
+      "win_rate": 0.5579622068172989,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_1",
+      "name": "Mean Reversion",
+      "description": "Buy dips, sell peaks",
+      "asset_class": "stocks",
+      "status": "inactive",
+      "win_rate": 0.5120755814263277,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_2",
+      "name": "Breakout Strategy",
+      "description": "Trade breakouts",
+      "asset_class": "forex",
+      "status": "inactive",
+      "win_rate": 0.5621371916818695,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    },
+    {
+      "id": "strat_3",
+      "name": "AI Signal",
+      "description": "ML-based signals",
+      "asset_class": "crypto",
+      "status": "inactive",
+      "win_rate": 0.6674998768783094,
+      "total_trades": 0,
+      "total_pnl": 0.0
+    }
+  ]
+}

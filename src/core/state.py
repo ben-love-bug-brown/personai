@@ -14,6 +14,7 @@ import json
 
 class AgentState(Enum):
     """PersonAI operational states"""
+    INITIALIZING = "initializing"
     IDLE = "idle"
     THINKING = "thinking"
     EXECUTING = "executing"

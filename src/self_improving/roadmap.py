@@ -49,6 +49,24 @@ class RollingRoadmap:
                     data = json.load(f)
                     self.cycles_completed = data.get('cycles_completed', 0)
                     self.improvements_made = data.get('improvements_made', 0)
+                    self.items = []
+                    for raw_item in data.get('items', []):
+                        try:
+                            self.items.append(
+                                RoadmapItem(
+                                    id=raw_item['id'],
+                                    phase=raw_item['phase'],
+                                    task=raw_item['task'],
+                                    status=raw_item['status'],
+                                    priority=int(raw_item.get('priority', 5)),
+                                    completed_at=raw_item.get('completed_at'),
+                                    notes=raw_item.get('notes', ''),
+                                    blockers=list(raw_item.get('blockers', [])),
+                                    dependencies=list(raw_item.get('dependencies', [])),
+                                )
+                            )
+                        except Exception:
+                            continue
             except Exception as e:
                 # Handle exception - silently fail for now
                 pass

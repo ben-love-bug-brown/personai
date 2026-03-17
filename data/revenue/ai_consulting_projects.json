@@ -1,0 +1,13 @@
+{
+  "projects": [
+    {
+      "id": "project_1773773199.326413",
+      "client": "ManufacturingCo",
+      "description": "AI Strategy implementation",
+      "status": "proposal",
+      "value": 15082,
+      "hours_billed": 0.0,
+      "consultant_id": "consultant_0"
+    }
+  ]
+}

@@ -139,10 +139,10 @@
       "id": "git-commit-001",
       "phase": "Development",
       "task": "Commit all changes to git",
-      "status": "in_progress",
+      "status": "completed",
       "priority": 9,
-      "completed_at": null,
-      "notes": "Commit roadmap updates and improvements",
+      "completed_at": "2026-03-17T18:47:00.000000",
+      "notes": "Committed: Self-improvement cycle 10 with revenue models, CLI, tests",
       "blockers": [],
       "dependencies": []
     }

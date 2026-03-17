@@ -70,16 +70,24 @@ personai/
 ├── src/
 │   ├── core/           # Core state management
 │   ├── memory/         # Memory system
-│   ├── llm/           # Self-driven NLP
+│   ├── llm/            # Self-driven NLP
 │   ├── agents/         # Agent system
-│   ├── revenue/       # Revenue models
+│   ├── revenue/        # Revenue models + orchestration
+│   │   ├── orchestrator.py
+│   │   ├── model_factory.py
+│   │   └── config_store.py
 │   ├── self_improving/ # Self-improvement
-│   ├── planning/      # Roadmap & loop
-│   └── api/           # Web API
-├── data/              # Persistent data
-├── tests/             # Test suite
-└── docs/              # Documentation
+│   ├── planning/       # Roadmap & loop
+│   └── api/            # Web API
+├── data/               # Persistent data
+├── tests/              # Test suite
+└── docs/               # Documentation
 ```
+
+## Notes
+
+- Repository hygiene improved: tracked `__pycache__/`, `*.pyc`, and `*.backup` artifacts were removed from git tracking.
+- Revenue model bootstrap/config persistence was modularized for easier maintenance and testing.
 
 ## Testing
 

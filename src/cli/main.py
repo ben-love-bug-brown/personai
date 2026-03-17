@@ -6,10 +6,8 @@ Command-line interface for PersonAI.
 
 import click
 import json
-from datetime import datetime
 
 from ..revenue import create_orchestrator
-from ..revenue.base import RevenueModel, RevenueConfig
 
 
 @click.group()

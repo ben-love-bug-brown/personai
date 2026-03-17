@@ -5,21 +5,13 @@ Coordinates multiple revenue generation models.
 """
 
 from typing import Dict, Any, List, Optional
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime
-import json
-import os
-import random
 import logging
 
-from .base import RevenueModel, RevenueConfig, RevenueResult, RevenueStatus, RevenueCategory
-from .models.automation_agency import AutomationAgency
-from .models.micro_saas import MicroSaaS
-from .models.affiliate import AffiliateMarketing
-from .models.digital_products import DigitalProducts
-from .models.ai_consulting import AIConsulting
-from .models.content_creator import ContentCreator
-from .models.trading_bot import TradingBot
+from .base import RevenueModel, RevenueResult
+from .config_store import RevenueConfigStore
+from .model_factory import build_models
 
 
 @dataclass
@@ -48,100 +40,22 @@ class RevenueOrchestrator:
         self.allocation: Dict[str, float] = {}
         self.total_revenue = 0.0
         self.history: List[RevenueResult] = []
+        self.config_store = RevenueConfigStore(config_path)
         
         self._load_config()
         self._initialize_models()
     
     def _load_config(self):
         """Load configuration"""
-        if os.path.exists(self.config_path):
-            try:
-                with open(self.config_path, 'r') as f:
-                    config = json.load(f)
-                    self.allocation = config.get("allocation", {})
-            except Exception:
-                self.allocation = {}
-        else:
-            self.allocation = {
-                "automation_agency": 20.0,
-                "micro_saas": 15.0,
-                "affiliate_marketing": 15.0,
-                "digital_products": 15.0,
-                "ai_consulting": 15.0,
-                "content_creator": 10.0,
-                "trading_bot": 10.0,
-            }
-            self._save_config()
+        self.allocation = self.config_store.load_allocation()
     
     def _save_config(self):
         """Save configuration"""
-        data_dir = os.path.dirname(self.config_path)
-        if data_dir:
-            os.makedirs(data_dir, exist_ok=True)
-        
-        with open(self.config_path, 'w') as f:
-            json.dump({
-                "allocation": self.allocation,
-                "updated_at": datetime.now().isoformat()
-            }, f, indent=2)
+        self.config_store.save_allocation(self.allocation)
     
     def _initialize_models(self):
         """Initialize all revenue models"""
-        # Automation Agency
-        config = RevenueConfig(
-            model="automation_agency",
-            enabled=self.allocation.get("automation_agency", 0) > 0,
-            allocation=self.allocation.get("automation_agency", 0)
-        )
-        self.models["automation_agency"] = AutomationAgency(config)
-        
-        # Micro SaaS
-        config = RevenueConfig(
-            model="micro_saas",
-            enabled=self.allocation.get("micro_saas", 0) > 0,
-            allocation=self.allocation.get("micro_saas", 0)
-        )
-        self.models["micro_saas"] = MicroSaaS(config)
-        
-        # Affiliate Marketing
-        config = RevenueConfig(
-            model="affiliate_marketing",
-            enabled=self.allocation.get("affiliate_marketing", 0) > 0,
-            allocation=self.allocation.get("affiliate_marketing", 0)
-        )
-        self.models["affiliate_marketing"] = AffiliateMarketing(config)
-        
-        # Digital Products
-        config = RevenueConfig(
-            model="digital_products",
-            enabled=self.allocation.get("digital_products", 0) > 0,
-            allocation=self.allocation.get("digital_products", 0)
-        )
-        self.models["digital_products"] = DigitalProducts(config)
-        
-        # AI Consulting
-        config = RevenueConfig(
-            model="ai_consulting",
-            enabled=self.allocation.get("ai_consulting", 0) > 0,
-            allocation=self.allocation.get("ai_consulting", 0)
-        )
-        self.models["ai_consulting"] = AIConsulting(config)
-        
-        # Content Creator
-        config = RevenueConfig(
-            model="content_creator",
-            enabled=self.allocation.get("content_creator", 0) > 0,
-            allocation=self.allocation.get("content_creator", 0)
-        )
-        self.models["content_creator"] = ContentCreator(config)
-        
-        # Trading Bot
-        config = RevenueConfig(
-            model="trading_bot",
-            enabled=self.allocation.get("trading_bot", 0) > 0,
-            allocation=self.allocation.get("trading_bot", 0)
-        )
-        self.models["trading_bot"] = TradingBot(config)
+        self.models = build_models(self.allocation)
         
         # Initialize all models
         for name, model in self.models.items():

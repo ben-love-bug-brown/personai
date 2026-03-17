@@ -8,13 +8,16 @@ import os
 import re
 import subprocess
 import time
-from typing import Dict, Any, List, Optional, Callable
+from typing import Dict, Any, List, Optional
 from dataclasses import dataclass
 from datetime import datetime
 import uuid
 
 from ..llm import get_llm_client, SelfDrivenNLP
 from ..memory import get_memory, MemoryCategory
+from .logging_utils import get_logger
+
+logger = get_logger(__name__)
 
 
 @dataclass
@@ -78,7 +81,7 @@ class SelfImprovementExecutor:
         try:
             with open(filepath, 'r') as f:
                 content = f.read()
-        except Exception as e:
+        except Exception:
             return actions
         
         # Check for common issues
@@ -212,8 +215,7 @@ class SelfImprovementExecutor:
                 os.remove(backup_path)
                 return True
         except Exception as e:
-            # Handle exception - log and return False
-            print(f"Revert failed: {e}")
+            logger.error(f"Revert failed: {e}")
             return False
     
     def run_improvement_cycle(self) -> Dict[str, Any]:
@@ -233,7 +235,7 @@ class SelfImprovementExecutor:
         }
         
         # Step 1: Analyze
-        print(f"[{cycle_id}] Analyzing code...")
+        logger.info(f"[{cycle_id}] Analyzing code...")
         actions = self.analyze_and_suggest()
         results['actions_suggested'] = len(actions)
         results['analyzed_files'] = len(set(a.file_path for a in actions))
@@ -246,7 +248,7 @@ class SelfImprovementExecutor:
             if applied_count >= max_apply:
                 break
             
-            print(f"[{cycle_id}] Applying: {action.description[:50]}...")
+            logger.info(f"[{cycle_id}] Applying: {action.description[:50]}...")
             success = self.apply_action(action)
             
             if success:
@@ -261,13 +263,13 @@ class SelfImprovementExecutor:
                 results['actions_failed'] += 1
         
         # Step 3: Run tests
-        print(f"[{cycle_id}] Running tests...")
+        logger.info(f"[{cycle_id}] Running tests...")
         test_result = self._run_tests()
         results['tests_passed'] = test_result['passed']
         
         # Step 4: Revert if tests fail
         if not test_result['passed'] and self.applied_actions:
-            print(f"[{cycle_id}] Tests failed, reverting changes...")
+            logger.warning(f"[{cycle_id}] Tests failed, reverting changes...")
             for action in reversed(self.applied_actions[-applied_count:]):
                 self.revert_action(action)
             results['actions_applied'] = 0

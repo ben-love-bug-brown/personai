@@ -7,7 +7,6 @@ Main SelfImprover class and supporting components.
 import os
 import re
 import time
-import json
 import subprocess
 from dataclasses import dataclass, field
 from typing import Optional, Callable

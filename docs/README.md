@@ -114,6 +114,11 @@ orchestrator.execute_all()  # Run all enabled models
 orchestrator.get_report()   # Get revenue report
 ```
 
+Revenue internals are modularized:
+- `src/revenue/model_factory.py` builds model instances
+- `src/revenue/config_store.py` loads/saves allocation config
+- `src/revenue/orchestrator.py` coordinates execution/reporting
+
 ## Revenue Models
 
 | Model | Description |
@@ -171,7 +176,7 @@ print(f"LLM: {status['llm_provider']}")
 improvement = api.run_self_improvement()
 
 # Generate revenue
-revenue = api.create_orchestrator().execute_all()
+revenue = api.generate_revenue()
 ```
 
 ### API Endpoints (Future FastAPI)
@@ -222,10 +227,16 @@ Configuration is stored in `data/revenue/config.json`:
 
 ```json
 {
-  "automation_agency": {
-    "enabled": false,
-    "allocation": 20.0
-  }
+  "allocation": {
+    "automation_agency": 20.0,
+    "micro_saas": 15.0,
+    "affiliate_marketing": 15.0,
+    "digital_products": 15.0,
+    "ai_consulting": 15.0,
+    "content_creator": 10.0,
+    "trading_bot": 10.0
+  },
+  "updated_at": "2026-03-17T00:00:00"
 }
 ```
 

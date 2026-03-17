@@ -22,8 +22,14 @@ def cli():
 @click.argument("message")
 def chat(message: str):
     """Chat with PersonAI"""
+    from ..api.chat import get_chat_api
+    
+    api = get_chat_api()
+    result = api.chat(message)
+    
     click.echo(f"You: {message}")
-    click.echo("PersonAI: [Chat functionality coming soon]")
+    click.echo(f"PersonAI: {result['response']}")
+    click.echo(f"[Session: {result['session_id']}]")
 
 
 @cli.command()

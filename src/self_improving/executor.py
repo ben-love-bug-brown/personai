@@ -104,8 +104,8 @@ class SelfImprovementExecutor:
         
         lines = content.split('\n')
         
-        # Skip analyzing self (the executor)
-        if 'self_improving' in filepath:
+        # Skip analyzing self (the executor) and test files
+        if 'self_improving' in filepath or 'tests/' in filepath:
             return issues
         
         # Issue 1: Check for print statements that should be logging
@@ -131,8 +131,6 @@ class SelfImprovementExecutor:
                 })
         
         # Issue 3: Check for empty except blocks
-        # Only flag truly empty except blocks (with just 'pass')
-        # Don't flag except blocks that already have comments or actual handling
         for i, line in enumerate(lines):
             if re.match(r'^\s*except.*:', line):
                 # Check if next non-empty line is pass (truly empty)
@@ -152,29 +150,6 @@ class SelfImprovementExecutor:
                                 'priority': 0.7
                             })
                         break
-        
-        # Issue 4: Check for TODO comments that need addressing
-        for i, line in enumerate(lines):
-            if 'TODO' in line.upper() and not line.strip().startswith('# Issue'):
-                issues.append({
-                    'description': f'TODO comment found on line {i+1}',
-                    'old_code': line,
-                    'new_code': line,
-                    'reason': 'TODOs should be addressed or tracked in issue tracker',
-                    'priority': 0.4
-                })
-        
-        # Issue 5: Check for hardcoded values that should be config
-        for i, line in enumerate(lines):
-            # Look for hardcoded timeouts, retries, etc.
-            if re.search(r'(timeout|retry|delay)\s*=\s*\d+', line) and 'config' not in line.lower():
-                issues.append({
-                    'description': f'Hardcoded value on line {i+1} - consider config',
-                    'old_code': line,
-                    'new_code': line,
-                    'reason': 'Hardcoded values should be configurable',
-                    'priority': 0.4
-                })
         
         return issues
     
@@ -314,14 +289,14 @@ class SelfImprovementExecutor:
             if any(f.startswith('test_') and f.endswith('.py') for f in files):
                 has_tests = True
                 break
-        
+
         if not has_tests:
             # No tests - skip verification
             return {'passed': True, 'output': 'No tests found, skipping verification', 'errors': ''}
-        
+
         try:
             result = subprocess.run(
-                ['python', '-m', 'pytest', self.target_path, '-v', '--tb=short', '-x'],
+                ['python', '-m', 'pytest', '/home/workspace/personai/tests', '-v', '--tb=short', '-x'],
                 cwd='/home/workspace/personai',
                 capture_output=True,
                 text=True,

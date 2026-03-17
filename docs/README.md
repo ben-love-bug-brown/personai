@@ -129,6 +129,9 @@ orchestrator.get_report()   # Get revenue report
 ## CLI Commands
 
 ```bash
+# Chat with PersonAI
+python -m src.cli.main chat "Hello"
+
 # Status
 python -m src.cli.main status
 
@@ -140,6 +143,50 @@ python -m src.cli.main disable_model trading_bot
 
 # Report
 python -m src.cli.main report
+```
+
+## API
+
+PersonAI has a full REST API for programmatic access:
+
+```python
+from src.api.chat import get_chat_api
+
+api = get_chat_api()
+
+# Chat
+result = api.chat("Hello, how are you?")
+print(result['response'])
+print(result['session_id'])
+
+# Create session
+session_id = api.create_session({"user": "test"})
+
+# Get status
+status = api.get_status()
+print(f"Sessions: {status['sessions']}")
+print(f"LLM: {status['llm_provider']}")
+
+# Run self-improvement
+improvement = api.run_self_improvement()
+
+# Generate revenue
+revenue = api.create_orchestrator().execute_all()
+```
+
+### API Endpoints (Future FastAPI)
+
+```python
+from src.api.chat import create_chat_app
+
+app = create_chat_app()  # Returns FastAPI app
+# Or use directly:
+# POST /chat - Chat with PersonAI
+# POST /sessions - Create session
+# GET /sessions - List sessions
+# GET /status - Get system status
+# POST /improve - Run self-improvement
+# POST /revenue - Generate revenue
 ```
 
 ## Self-Improvement

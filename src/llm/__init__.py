@@ -68,9 +68,19 @@ You have memory of past conversations and can learn from them."""
         """Generate response using internal processing"""
         prompt_lower = prompt.lower()
         
+        # Check memory context first
+        memory_context = ""
+        if hasattr(self, 'memory') and self.memory:
+            try:
+                memories = self.memory.recall(prompt, limit=2)
+                if memories:
+                    memory_context = " [From memory: " + "; ".join([m.content[:50] for m in memories]) + "]"
+            except Exception as e:
+                pass
+        
         # Status queries
         if "status" in prompt_lower:
-            return "I am operating autonomously. My systems are running and improving continuously."
+            return "I am operating autonomously. My systems are running and improving continuously." + memory_context
         
         # Help queries
         elif "help" in prompt_lower or "what can you do" in prompt_lower:
@@ -80,24 +90,37 @@ You have memory of past conversations and can learn from them."""
 • Learn from conversations
 • Make autonomous decisions
 • Execute tasks continuously
-        
-I am constantly self-improving."""
+• Provide chat conversation via API
+
+I am constantly self-improving.""" + memory_context
         
         # Revenue queries
         elif "revenue" in prompt_lower or "money" in prompt_lower or "earn" in prompt_lower:
-            return "I am running multiple revenue generation models including automation agency, micro-SaaS, affiliate marketing, and digital products."
+            return "I am running multiple revenue generation models including automation agency, micro-SaaS, affiliate marketing, digital products, AI consulting, content creation, and trading bots." + memory_context
         
         # Memory/remember queries
         elif "remember" in prompt_lower or "recall" in prompt_lower:
-            return "I maintain a persistent memory system that stores conversations, knowledge, and learned patterns."
+            return "I maintain a persistent memory system that stores conversations, knowledge, and learned patterns." + memory_context
         
         # Self-improvement queries
         elif "improve" in prompt_lower or "better" in prompt_lower:
-            return "I continuously analyze my code, identify issues, and implement improvements through autonomous self-improvement cycles."
+            return "I continuously analyze my code, identify issues, and implement improvements through autonomous self-improvement cycles. My self-improvement executor detects bugs and applies fixes safely." + memory_context
         
-        # Default - acknowledge and ask
+        # API queries
+        elif "api" in prompt_lower or "/chat" in prompt_lower:
+            return "I have a REST API at src/api/chat.py. Use get_chat_api().chat(message) to chat, get_chat_api().get_status() for system status." + memory_context
+        
+        # What are you queries
+        elif "what are you" in prompt_lower or "who are you" in prompt_lower:
+            return "I am PersonAI, a self-directed autonomous AI partner. I can think, learn, improve myself, generate revenue, and have conversations. I operate continuously." + memory_context
+        
+        # Default - acknowledge and respond thoughtfully
         else:
-            return f"I understand: '{prompt[:100]}'. I am processing this and will respond appropriately. My autonomous systems are analyzing this input."
+            response = f"I understand: '{prompt[:100]}'. "
+            if memory_context:
+                response += f"I recall relevant context:{memory_context} "
+            response += "I am processing this and will respond appropriately. My autonomous systems are analyzing this input."
+            return response
     
     def stream(self, prompt: str, **kwargs) -> Iterator[str]:
         """Stream response word by word"""

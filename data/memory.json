@@ -338,8 +338,8 @@
       "category": "self_improvement",
       "importance": 0.8,
       "created_at": "2026-03-17T18:08:23.834822",
-      "accessed_at": "2026-03-17T18:14:24.437840",
-      "access_count": 1,
+      "accessed_at": "2026-03-17T19:12:56.583418",
+      "access_count": 4,
       "metadata": {
         "action_id": "b228377e-b1e3-44d3-8d53-7735cd1a989b",
         "file": "/home/workspace/personai/src/self_improving/roadmap.py",
@@ -352,8 +352,8 @@
       "category": "self_improvement",
       "importance": 0.8,
       "created_at": "2026-03-17T18:08:23.835702",
-      "accessed_at": "2026-03-17T18:14:24.437840",
-      "access_count": 1,
+      "accessed_at": "2026-03-17T19:12:56.583419",
+      "access_count": 4,
       "metadata": {
         "action_id": "02c0e0b6-cb16-4744-9820-30a3c80e9284",
         "file": "/home/workspace/personai/src/consciousness/heartbeat.py",
@@ -366,8 +366,8 @@
       "category": "self_improvement",
       "importance": 0.8,
       "created_at": "2026-03-17T18:08:23.836770",
-      "accessed_at": "2026-03-17T18:14:24.437839",
-      "access_count": 1,
+      "accessed_at": "2026-03-17T19:12:56.583420",
+      "access_count": 4,
       "metadata": {
         "action_id": "63ac7ab2-7325-41c2-8b80-253cb86f19c5",
         "file": "/home/workspace/personai/src/memory/__init__.py",
@@ -407,7 +407,35 @@
       "accessed_at": "2026-03-17T18:43:49.482888",
       "access_count": 0,
       "metadata": {}
+    },
+    {
+      "id": "e0e2d59f-8107-4365-b380-2d77c5d1de2e",
+      "content": "Applied improvement: Bare except on line 78 - should catch specific exception to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T19:12:56.597663",
+      "accessed_at": "2026-03-17T19:12:56.597663",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "53fc2d9d-1ee2-442c-8c46-0b2165095dd4",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Bare except on line 78 - should catch specific exception"
+      }
+    },
+    {
+      "id": "c52f3d53-2a44-4713-9bdf-3341e851652b",
+      "content": "Applied improvement: Empty except block at line 78 to /home/workspace/personai/src/llm/__init__.py",
+      "category": "self_improvement",
+      "importance": 0.8,
+      "created_at": "2026-03-17T19:12:56.599188",
+      "accessed_at": "2026-03-17T19:12:56.599188",
+      "access_count": 0,
+      "metadata": {
+        "action_id": "c05c25b5-4542-4f8d-9eff-828ec5d9d8d1",
+        "file": "/home/workspace/personai/src/llm/__init__.py",
+        "improvement": "Empty except block at line 78"
+      }
     }
   ],
-  "saved_at": "2026-03-17T18:43:49.483041"
+  "saved_at": "2026-03-17T19:12:56.599318"
 }

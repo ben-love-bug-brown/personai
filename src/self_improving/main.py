@@ -168,7 +168,7 @@ class KeepDiscardManager:
         
         improvement = result.metric_after - self.best_result.metric_after
         
-        if improvement < -threshold:
+        if improvement > threshold:
             self.best_result = result
             return "keep"
         elif abs(improvement) <= threshold:
@@ -309,23 +309,24 @@ class AutonomousScheduler:
         }
         
         for i in range(self.max_experiments_per_cycle):
-            # Get suggestion from advisor
-            from intelligence import create_advisor
-            advisor = create_advisor()
-            
-            # Analyze target module
-            analysis = self.improver.analyzer.analyze(self.improver.config.target_module)
-            analysis_dict = {
-                'line_count': analysis.line_count,
-                'function_count': analysis.function_count,
-                'class_count': analysis.class_count,
-                'complexity_score': analysis.complexity_score,
-                'issues': analysis.issues
-            }
-            
-            # Get suggestion
-            suggestion = advisor.get_suggestion(analysis_dict)
-            
+            try:
+                from .intelligence import create_advisor
+                advisor = create_advisor()
+                analysis = self.improver.analyzer.analyze(self.improver.config.target_module)
+                analysis_dict = {
+                    'line_count': analysis.line_count,
+                    'function_count': analysis.function_count,
+                    'class_count': analysis.class_count,
+                    'complexity_score': analysis.complexity_score,
+                    'issues': analysis.issues
+                }
+                suggestion = advisor.get_suggestion(analysis_dict)
+            except Exception:
+                suggestion = {
+                    'focus': 'stability',
+                    'action': 'Run safe static analysis and test verification only'
+                }
+
             results['experiments'].append({
                 'suggestion': suggestion,
                 'status': 'proposed'

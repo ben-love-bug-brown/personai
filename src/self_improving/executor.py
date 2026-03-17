@@ -102,7 +102,7 @@ class SelfImprovementExecutor:
         return actions
     
     def _detect_issues(self, content: str, filepath: str) -> List[Dict]:
-        """Detect issues in code"""
+        """Detect issues in code - enhanced with deeper analysis"""
         issues = []
         
         lines = content.split('\n')
@@ -135,11 +135,131 @@ class SelfImprovementExecutor:
                     'priority': 0.7
                 })
         
-        # NOTE: Disabled auto-detection for empty except blocks and duplicate code
-        # as they can create bad code. Focus on safe fixes only.
+        # Issue 3: Deep complexity analysis - detect functions with high complexity
+        complexity_issues = self._analyze_complexity(content, filepath)
+        issues.extend(complexity_issues)
         
-        # Issue 3: Check for hardcoded paths (not using os.path.join or Path)
-        # DISABLED - not critical and can cause issues
+        # Issue 4: Detect code duplication patterns
+        duplication_issues = self._detect_duplication(content, filepath)
+        issues.extend(duplication_issues)
+        
+        # Issue 5: Detect hotspots (large files with many functions)
+        hotspot_issues = self._detect_hotspots(filepath, len(lines), content)
+        issues.extend(hotspot_issues)
+        
+        return issues
+    
+    def _analyze_complexity(self, content: str, filepath: str) -> List[Dict]:
+        """Analyze code complexity - detect functions with high complexity"""
+        issues = []
+        lines = content.split('\n')
+        
+        # Find all function definitions
+        in_function = False
+        function_name = ""
+        function_start = 0
+        complexity_score = 0
+        
+        # Count decision points (if, for, while, and, or, except, with)
+        decision_keywords = ['if ', 'elif ', 'for ', 'while ', ' and ', ' or ', 'except', 'with ']
+        
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+            
+            # Detect function start
+            if stripped.startswith('def ') or stripped.startswith('async def '):
+                if in_function and function_name:
+                    # Analyze previous function
+                    if complexity_score > 7:  # Threshold for high complexity
+                        issues.append({
+                            'description': f'High complexity function "{function_name}" (score: {complexity_score}) - consider refactoring',
+                            'old_code': '',
+                            'new_code': '',
+                            'reason': f'Function has {complexity_score} decision points - consider splitting',
+                            'priority': 0.6
+                        })
+                in_function = True
+                function_start = i
+                # Extract function name
+                match = re.match(r'def (\w+)', stripped)
+                if match:
+                    function_name = match.group(1)
+                complexity_score = 0
+                continue
+            
+            if in_function:
+                # Skip docstrings and comments
+                if stripped.startswith('"""') or stripped.startswith("'''") or stripped.startswith('#'):
+                    continue
+                # Count decision points
+                for kw in decision_keywords:
+                    complexity_score += line.count(kw)
+        
+        return issues
+    
+    def _detect_duplication(self, content: str, filepath: str) -> List[Dict]:
+        """Detect code duplication patterns"""
+        issues = []
+        
+        # Skip small files
+        lines = [l.strip() for l in content.split('\n') if l.strip()]
+        if len(lines) < 20:
+            return issues
+        
+        # Find repeated code blocks (3+ lines repeated)
+        code_blocks = {}
+        current_block = []
+        
+        for line in lines:
+            # Skip trivial lines
+            if len(line) < 20 or line.startswith('#') or line.startswith('"""'):
+                if current_block and len(current_block) >= 3:
+                    block_text = '\n'.join(current_block)
+                    code_blocks[block_text] = code_blocks.get(block_text, 0) + 1
+                current_block = []
+            else:
+                current_block.append(line)
+        
+        # Report duplicated blocks
+        for block, count in code_blocks.items():
+            if count >= 2 and len(block) > 50:
+                issues.append({
+                    'description': f'Code duplication detected: {len(block)} chars repeated {count} times',
+                    'old_code': block[:100] + '...' if len(block) > 100 else block,
+                    'new_code': '',
+                    'reason': 'Repeated code should be extracted to a function',
+                    'priority': 0.5
+                })
+                break  # Report one at a time
+        
+        return issues
+    
+    def _detect_hotspots(self, filepath: str, line_count: int, content: str) -> List[Dict]:
+        """Detect code hotspots - large files or files with many functions"""
+        issues = []
+        
+        # Count functions/classes
+        function_count = len(re.findall(r'^\s*(def |class |async def )', content, re.MULTILINE))
+        
+        # Hotspot: Large file with many functions
+        if line_count > 200 and function_count > 10:
+            issues.append({
+                'description': f'Hotspot: Large file ({line_count} lines, {function_count} functions) - consider splitting',
+                'old_code': '',
+                'new_code': '',
+                'reason': 'Large files are harder to maintain - consider modularization',
+                'priority': 0.4
+            })
+        
+        # Hotspot: Many exports but no docstrings
+        if function_count > 5 and '"""' not in content[:1000]:
+            issues.append({
+                'description': f'File has {function_count} functions but no module docstring',
+                'old_code': '',
+                'new_code': '',
+                'reason': 'Module documentation improves maintainability',
+                'priority': 0.3
+            })
         
         return issues
     
@@ -148,26 +268,27 @@ class SelfImprovementExecutor:
         try:
             with open(action.file_path, 'r') as f:
                 content = f.read()
-            
+
             if action.old_code:
-                new_content = content.replace(action.old_code, action.new_code)
+                if action.old_code not in content:
+                    action.status = "failed"
+                    action.reason = "Failed: target code snippet not found"
+                    self.failed_actions.append(action)
+                    return False
+                new_content = content.replace(action.old_code, action.new_code, 1)
             else:
-                # For additions at the beginning
                 new_content = action.new_code + '\n' + content
-            
-            # Backup before applying
+
             backup_path = action.file_path + '.backup'
             with open(backup_path, 'w') as f:
                 f.write(content)
-            
-            # Apply the change
+
             with open(action.file_path, 'w') as f:
                 f.write(new_content)
-            
+
             action.status = "applied"
             self.applied_actions.append(action)
-            
-            # Log to memory
+
             self.memory.memorize(
                 content=f"Applied improvement: {action.description} to {action.file_path}",
                 category=MemoryCategory.SELF_IMPROVEMENT,
@@ -178,9 +299,9 @@ class SelfImprovementExecutor:
                     'improvement': action.description
                 }
             )
-            
+
             return True
-            
+
         except Exception as e:
             action.status = "failed"
             action.reason = f"Failed: {str(e)}"

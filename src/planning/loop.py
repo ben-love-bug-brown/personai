@@ -6,10 +6,13 @@ import time
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional, Dict, Any
+import logging
 
 from ..llm import get_llm_client
 from ..memory import get_memory
 from .roadmap import get_roadmap
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -72,16 +75,16 @@ class MainLoop:
 
                 time.sleep(1)
             except Exception as e:
-                print(f"Loop error: {e}")
+                logger.exception("Loop error: %s", e)
 
     def _run_self_improvement(self):
         """Run self-improvement analysis"""
         try:
             recent = self._conversation_history[-10:]
             if len(recent) >= 2:
-                print(f"Self-improvement: Analyzed {len(recent)} messages")
+                logger.info("Self-improvement: analyzed %d messages", len(recent))
         except Exception as e:
-            print(f"Self-improvement error: {e}")
+            logger.exception("Self-improvement error: %s", e)
 
     async def send_message(self, message: str) -> Dict[str, Any]:
         """Send a message and get a response"""
@@ -143,7 +146,7 @@ Respond helpfully as PersonAI."""
                 return (result.content or "").strip() or "I'm here to help!"
             return str(result).strip() or "I'm here to help!"
         except Exception as e:
-            print(f"LLM error: {e}")
+            logger.exception("LLM error: %s", e)
             return "I'm processing your message. How can I help you today?"
 
     def get_status(self) -> Dict[str, Any]:

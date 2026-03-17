@@ -1,7 +1,7 @@
 {
-  "cycles_completed": 22,
+  "cycles_completed": 24,
   "improvements_made": 19,
-  "last_updated": "2026-03-17T21:24:15.614596",
+  "last_updated": "2026-03-17T21:40:45.344646",
   "items": [
     {
       "id": "phase1-1",
@@ -579,6 +579,94 @@
       "id": "48c61d20-3e9e-4716-af4a-89bdef2b2ce2",
       "phase": "Self-Improvement",
       "task": "Continue improvements (2 remaining)",
+      "status": "pending",
+      "priority": 7,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "3fbd3151-228d-48e4-8727-5e87869ec6a4",
+      "phase": "Self-Improvement",
+      "task": "High complexity function \"chat\" (score: 21) - consider refactoring",
+      "status": "pending",
+      "priority": 8,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "897301a4-0ee6-422b-963d-37d216b8518f",
+      "phase": "Self-Improvement",
+      "task": "High complexity function \"_load_data\" (score: 12) - consider refactoring",
+      "status": "pending",
+      "priority": 8,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "4e8b1285-8f74-40b2-8b7a-21072d1ac1de",
+      "phase": "Self-Improvement",
+      "task": "High complexity function \"execute\" (score: 11) - consider refactoring",
+      "status": "pending",
+      "priority": 8,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "e2e44ed7-8654-4ada-bd4f-5de397af9d0f",
+      "phase": "Self-Improvement",
+      "task": "Continue improvements (29 remaining)",
+      "status": "pending",
+      "priority": 7,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "756aec30-837b-4b3f-b8e8-01087e21778e",
+      "phase": "Self-Improvement",
+      "task": "High complexity function \"chat\" (score: 21) - consider refactoring",
+      "status": "pending",
+      "priority": 8,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "98f8aa37-e4df-42e3-b539-bb7527605dfa",
+      "phase": "Self-Improvement",
+      "task": "High complexity function \"_load_data\" (score: 12) - consider refactoring",
+      "status": "pending",
+      "priority": 8,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "8f492cb7-faae-44a8-83c2-c0302ac5af52",
+      "phase": "Self-Improvement",
+      "task": "High complexity function \"execute\" (score: 11) - consider refactoring",
+      "status": "pending",
+      "priority": 8,
+      "completed_at": null,
+      "notes": "",
+      "blockers": [],
+      "dependencies": []
+    },
+    {
+      "id": "f12d277d-fcfd-41d6-b653-29f9bfe350ee",
+      "phase": "Self-Improvement",
+      "task": "Continue improvements (29 remaining)",
       "status": "pending",
       "priority": 7,
       "completed_at": null,

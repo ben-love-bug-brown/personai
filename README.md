@@ -29,9 +29,11 @@ Autonomous code analysis, improvement, and test validation.
 Learns and adapts to user preferences over time.
 
 ### 🌐 Interfaces
-- **Web UI**: https://badlucksbane.zo.space/chat
-- **REST API**: https://badlucksbane.zo.space/api/personai
+- **Web UI**: Available on your Zo Space (e.g., `yourhandle.zo.space/chat`)
+- **REST API**: Available on your Zo Space (e.g., `yourhandle.zo.space/api/personai`)
 - **Service**: Auto-started via Zo service manager
+
+> **Note**: Web UI and API endpoints are available as subdomains on your personal Zo account. Replace `yourhandle` with your Zo username.
 
 ## Status (2026-03-17)
 
@@ -60,7 +62,7 @@ python -m pytest -q tests/
 
 ## Web Interface
 
-Chat UI: https://badlucksbane.zo.space/chat
+Chat UI: Available on your Zo Space (e.g., `yourhandle.zo.space/chat`)
 
 ## Testing
 

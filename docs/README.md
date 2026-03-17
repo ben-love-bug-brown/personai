@@ -38,7 +38,7 @@ curl -X POST http://localhost:8765/chat -H "Content-Type: application/json" -d '
 
 ### Live Testing
 
-You can now test PersonAI through the web UI at https://badlucksbane.zo.space/chat - every feature uses real LLM responses from Zo AI. This enables:
+You can now test PersonAI through the web UI on your Zo Space - every feature uses real LLM responses from Zo AI. This enables:
 - Testing as the user would experience it
 - Verifying all features with natural language
 - No more hardcoded test inputs

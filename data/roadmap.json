@@ -1,23 +1,29 @@
 {
   "name": "PersonAI Master Roadmap",
-  "version": "3.2.0",
-  "last_synced": "2026-03-17T20:40:00.000000",
+  "version": "4.0.0",
+  "last_synced": "2026-03-17T20:55:00.000000",
   "source": "/home/workspace/personai/data/roadmap.json",
-  "description": "Single source of truth - Self-Driven Real-Mode: 100% native processing, no external APIs",
+  "description": "Single source of truth for PersonAI as an always-on autonomous operator with native/self-driven processing across runtime, tests, and documentation.",
   "vision": {
-    "core_principle": "Self-Driven Real-Mode: 100% native processing without external APIs",
-    "dream": "A fully autonomous AI that thinks, learns, improves itself, generates revenue, and converses - all without external dependencies"
+    "core_principle": "Always-on autonomous operator with 100% native/self-driven core processing",
+    "dream": "A fully autonomous AI that continuously thinks, learns, improves, earns, verifies, and documents itself without requiring external model APIs for core operation"
   },
+  "operating_constraints": [
+    "Native/self-driven processing is the default for all core systems",
+    "External model APIs are optional augmentation only and never core dependencies",
+    "Each roadmap deliverable must include runtime behavior, test coverage, and documentation updates",
+    "Roadmap and progress artifacts must remain synchronized and truthful"
+  ],
   "core_features": {
     "SelfDrivenNLP": {
-      "description": "100% native self-driven NLP processing - no external APIs",
+      "description": "Native self-driven NLP processing without external model API dependency",
       "file": "src/llm/__init__.py",
       "class": "SelfDrivenNLP",
       "status": "completed",
       "capabilities": [
-        "Intent parsing via rule-based pattern matching",
+        "Intent parsing via native pattern matching",
         "Memory integration for context-aware responses",
-        "Pattern learning from user interactions",
+        "Pattern learning from interactions",
         "Real-time response generation",
         "Conversation history tracking"
       ],
@@ -25,30 +31,19 @@
       "tests": "tests/advanced/test_llm_intent_parsing_advanced.py"
     },
     "SelfImprovement": {
-      "description": "Autonomous code improvement engine",
+      "description": "Autonomous code analysis and improvement engine",
       "file": "src/self_improving/",
-      "components": [
-        "executor.py",
-        "runner.py",
-        "roadmap.py"
-      ],
-      "status": "completed"
-    },
-    "Memory": {
-      "description": "Persistent conversation and knowledge storage",
-      "file": "src/memory/__init__.py",
-      "data": "data/memory.json",
       "status": "completed"
     },
     "Revenue": {
-      "description": "7 core AI revenue generation models",
+      "description": "Autonomous revenue operation with 7 models",
       "file": "src/revenue/",
       "status": "completed"
     },
-    "Consciousness": {
-      "description": "Autonomous thinking and heartbeat system",
-      "file": "src/consciousness/heartbeat.py",
-      "status": "completed"
+    "VerificationAndDocs": {
+      "description": "Self-driven tests and continuously synchronized documentation",
+      "file": "tests/ + docs/ + data/roadmap*.json",
+      "status": "planned"
     }
   },
   "phases": [
@@ -56,202 +51,83 @@
       "id": "phase1",
       "name": "Foundation",
       "status": "completed",
-      "description": "Core infrastructure and basic functionality - ALL COMPLETE",
+      "description": "Core native runtime infrastructure complete",
       "tasks": [
-        {
-          "id": "core_state_management",
-          "name": "Core state management - Thread-safe AGI state with event system",
-          "status": "completed",
-          "file": "src/core/state.py",
-          "tests": "tests/unit/test_state_manager.py"
-        },
-        {
-          "id": "memory_system_persistent",
-          "name": "Memory system - Persistent conversation storage",
-          "status": "completed",
-          "file": "src/memory/__init__.py"
-        },
-        {
-          "id": "self_driven_nlp",
-          "name": "Self-driven NLP - Pure Python NLP without external APIs",
-          "status": "completed",
-          "file": "src/llm/__init__.py",
-          "tests": "tests/advanced/test_llm_intent_parsing_advanced.py"
-        },
-        {
-          "id": "agent_system_supervisor",
-          "name": "Agent system - Supervisor, researcher, coder agents",
-          "status": "completed",
-          "file": "src/agents/"
-        },
-        {
-          "id": "revenue_models_7",
-          "name": "Revenue models - 7 core AI revenue models",
-          "status": "completed",
-          "file": "src/revenue/models/"
-        },
-        {
-          "id": "self_improvement_engine",
-          "name": "Self-improvement engine - Autonomous code improvement",
-          "status": "completed",
-          "file": "src/self_improving/",
-          "tests": "tests/advanced/test_self_improving_advanced.py"
-        },
-        {
-          "id": "consciousness_heartbeat",
-          "name": "Consciousness/Heartbeat - Autonomous thinking system",
-          "status": "completed",
-          "file": "src/consciousness/heartbeat.py"
-        },
-        {
-          "id": "controller_main",
-          "name": "Main controller - Orchestration of all systems",
-          "status": "completed",
-          "file": "src/core/controller.py",
-          "tests": "tests/integration/test_controller_initialize.py"
-        }
+        {"id": "core_state_management", "name": "Core state management", "status": "completed", "file": "src/core/state.py", "tests": "tests/unit/test_state_manager.py"},
+        {"id": "memory_system_persistent", "name": "Persistent memory system", "status": "completed", "file": "src/memory/__init__.py"},
+        {"id": "self_driven_nlp", "name": "SelfDrivenNLP baseline", "status": "completed", "file": "src/llm/__init__.py", "tests": "tests/advanced/test_llm_intent_parsing_advanced.py"},
+        {"id": "agent_system_supervisor", "name": "Agent system", "status": "completed", "file": "src/agents/"},
+        {"id": "revenue_models_7", "name": "Seven revenue model baseline", "status": "completed", "file": "src/revenue/models/"},
+        {"id": "self_improvement_engine", "name": "Self-improvement engine baseline", "status": "completed", "file": "src/self_improving/", "tests": "tests/advanced/test_self_improving_advanced.py"},
+        {"id": "consciousness_heartbeat", "name": "Consciousness heartbeat baseline", "status": "completed", "file": "src/consciousness/heartbeat.py"},
+        {"id": "controller_main", "name": "Main controller orchestration", "status": "completed", "file": "src/core/controller.py", "tests": "tests/integration/test_controller_initialize.py"}
       ]
     },
     {
       "id": "phase2",
-      "name": "Planning & Roadmapping",
+      "name": "Planning, Autonomy Loop, and Truth Sync",
       "status": "completed",
-      "description": "Planning and roadmap management - ALL COMPLETE",
+      "description": "Autonomous planning and roadmap synchronization complete",
       "tasks": [
-        {
-          "id": "roadmap_tracker_json",
-          "name": "Roadmap tracker - JSON-based progress tracking",
-          "status": "completed",
-          "file": "data/roadmap_progress.json",
-          "tests": "tests/unit/test_rolling_roadmap.py"
-        },
-        {
-          "id": "planning_loop_main",
-          "name": "Planning loop - Main execution loop",
-          "status": "completed",
-          "file": "src/planning/loop.py"
-        },
-        {
-          "id": "improvement_cycle_self",
-          "name": "Improvement cycle - Self-improvement orchestration",
-          "status": "completed",
-          "file": "src/self_improving/runner.py"
-        },
-        {
-          "id": "pattern_learning",
-          "name": "Pattern learning - SelfDrivenNLP learns from interactions",
-          "status": "completed",
-          "file": "src/llm/__init__.py",
-          "data": "data/learned_patterns.json"
-        }
+        {"id": "roadmap_tracker_json", "name": "Roadmap tracker", "status": "completed", "file": "data/roadmap_progress.json", "tests": "tests/unit/test_rolling_roadmap.py"},
+        {"id": "planning_loop_main", "name": "Planning loop", "status": "completed", "file": "src/planning/loop.py"},
+        {"id": "improvement_cycle_self", "name": "Improvement cycle orchestration", "status": "completed", "file": "src/self_improving/runner.py"},
+        {"id": "pattern_learning", "name": "Pattern learning persistence", "status": "completed", "file": "data/learned_patterns.json"},
+        {"id": "roadmap_sync_contract", "name": "Roadmap sync contract", "status": "completed", "file": "src/planning/roadmap_sync.py"}
       ]
     },
     {
       "id": "phase3",
-      "name": "Web UI & API",
+      "name": "Native Interfaces (CLI/API/Web)",
       "status": "completed",
-      "description": "Web interface and REST API - ALL COMPLETE",
+      "description": "Core interfaces complete",
       "tasks": [
-        {
-          "id": "rest_api_chat",
-          "name": "Chat API - /chat endpoint with session management",
-          "status": "completed",
-          "file": "src/api/chat.py"
-        },
-        {
-          "id": "rest_api_nlp",
-          "name": "NLP Service API - aiohttp web server",
-          "status": "completed",
-          "file": "src/api/nlp_service.py"
-        },
-        {
-          "id": "persistent_history_json",
-          "name": "Persistent history - JSON file storage",
-          "status": "completed",
-          "file": "data/memory.json"
-        },
-        {
-          "id": "cli_interface",
-          "name": "CLI interface - Command line tool",
-          "status": "completed",
-          "file": "src/cli/main.py",
-          "tests": "tests/advanced/test_executor_and_cli_advanced.py"
-        },
-        {
-          "id": "web_chat_interface",
-          "name": "Web chat interface - Zo.space chat page",
-          "status": "completed",
-          "file": "zo.space route"
-        },
-        {
-          "id": "unit_tests_comprehensive",
-          "name": "Unit tests - Comprehensive test coverage",
-          "status": "completed",
-          "tests": "tests/"
-        }
+        {"id": "rest_api_chat", "name": "Chat API", "status": "completed", "file": "src/api/chat.py"},
+        {"id": "rest_api_nlp", "name": "NLP service API", "status": "completed", "file": "src/api/nlp_service.py"},
+        {"id": "persistent_history_json", "name": "Persistent conversation history", "status": "completed", "file": "data/memory.json"},
+        {"id": "cli_interface", "name": "CLI interface", "status": "completed", "file": "src/cli/main.py", "tests": "tests/advanced/test_executor_and_cli_advanced.py"},
+        {"id": "web_chat_interface", "name": "Web chat interface", "status": "completed", "file": "zo.space route"},
+        {"id": "unit_tests_comprehensive", "name": "Baseline test integration", "status": "completed", "tests": "tests/"}
       ]
     },
     {
       "id": "phase4",
-      "name": "Advanced Self-Driven Features",
+      "name": "Deep Native Autonomy",
       "status": "in_progress",
-      "description": "Advanced capabilities that maintain the Self-Driven Real-Mode vision - no external dependencies",
+      "description": "Upgrade from baseline autonomy to deep self-directed operation",
       "tasks": [
-        {
-          "id": "enhanced_pattern_learning",
-          "name": "Enhanced pattern learning - Deeper SelfDrivenNLP pattern acquisition",
-          "status": "in_progress",
-          "file": "src/llm/__init__.py",
-          "notes": "Expand pattern matching beyond 3-word keys to phrases and semantic patterns"
-        },
-        {
-          "id": "autonomous_code_analysis",
-          "name": "Autonomous code analysis - Deeper static analysis for self-improvement",
-          "status": "in_progress",
-          "file": "src/self_improving/executor.py",
-          "notes": "Executor detects issues but needs richer analysis (duplicates, complexity, etc.)"
-        },
-        {
-          "id": "enhanced_personalization",
-          "name": "Enhanced personalization - Deeper user preference learning",
-          "status": "pending",
-          "file": "src/core/personalization.py",
-          "notes": "Basic personalization exists in controller, needs expansion"
-        },
-        {
-          "id": "autonomous_goal_setting",
-          "name": "Autonomous goal setting - Self-directed objective creation",
-          "status": "pending",
-          "notes": "System should be able to set its own goals based on performance metrics"
-        }
+        {"id": "enhanced_pattern_learning", "name": "Enhanced native pattern learning", "status": "in_progress", "file": "src/llm/__init__.py"},
+        {"id": "autonomous_code_analysis", "name": "Autonomous code analysis expansion", "status": "in_progress", "file": "src/self_improving/executor.py"},
+        {"id": "enhanced_personalization", "name": "Deep personalization learning", "status": "pending", "file": "src/core/personalization.py"},
+        {"id": "autonomous_goal_setting", "name": "Autonomous goal synthesis", "status": "pending"},
+        {"id": "long_horizon_planning", "name": "Long-horizon multi-cycle planner", "status": "pending", "file": "src/planning/loop.py"}
       ]
     },
     {
       "id": "phase5",
-      "name": "Autonomous Operating System",
+      "name": "Always-On Revenue Operator",
       "status": "pending",
-      "description": "Full autonomy - the AI runs, learns, and monetizes continuously",
+      "description": "Continuously operating and self-optimizing native revenue layer",
       "tasks": [
-        {
-          "id": "continuous_self_improvement",
-          "name": "Continuous self-improvement - 24/7 autonomous improvement cycles",
-          "status": "pending"
-        },
-        {
-          "id": "autonomous_revenue_optimization",
-          "name": "Autonomous revenue optimization - Self-tuning revenue models",
-          "status": "pending"
-        },
-        {
-          "id": "cross_module_learning",
-          "name": "Cross-module learning - Knowledge transfer between subsystems",
-          "status": "pending"
-        },
-        {
-          "id": "self_generated_tests",
-          "name": "Self-generated tests - Autonomous test creation",
-          "status": "pending"
-        }
+        {"id": "continuous_revenue_execution", "name": "24/7 autonomous revenue execution scheduling", "status": "pending", "file": "src/revenue/orchestrator.py"},
+        {"id": "autonomous_revenue_optimization", "name": "Self-tuning allocation and strategy mutation", "status": "pending", "file": "src/revenue/config_store.py"},
+        {"id": "cross_model_profit_risk", "name": "Cross-model profit/risk balancing", "status": "pending", "file": "src/revenue/orchestrator.py"},
+        {"id": "autonomous_experiment_runner", "name": "Autonomous experiment runner", "status": "pending", "file": "src/revenue/"},
+        {"id": "revenue_safety_guardrails", "name": "Native safety guardrails for autonomous execution decisions", "status": "pending", "file": "src/revenue/"}
+      ]
+    },
+    {
+      "id": "phase6",
+      "name": "Autonomous Verification & Documentation Fabric",
+      "status": "pending",
+      "description": "Native self-driven testing and self-maintaining documentation",
+      "tasks": [
+        {"id": "self_generated_tests", "name": "Self-generated tests for new behavior and regressions", "status": "pending", "tests": "tests/"},
+        {"id": "self_healing_test_loop", "name": "Self-healing test loop with root-cause tagging", "status": "pending", "file": "src/self_improving/runner.py"},
+        {"id": "coverage_expansion", "name": "Continuous coverage expansion and risk-prioritized testing", "status": "pending", "tests": "tests/"},
+        {"id": "autonomous_docs_refresh", "name": "Autonomous documentation refresh after accepted changes", "status": "pending", "file": "docs/"},
+        {"id": "truth_consistency_auditor", "name": "Roadmap/doc/reality consistency auditor", "status": "pending", "file": "src/planning/roadmap_sync.py"},
+        {"id": "proof_of_autonomy_report", "name": "Per-cycle proof of autonomy report (runtime + tests + docs)", "status": "pending", "file": "data/self_improvement_run_report.json"}
       ]
     }
   ],
@@ -270,14 +146,15 @@
     ]
   },
   "data_files": {
+    "roadmap": "data/roadmap.json",
     "roadmap_progress": "data/roadmap_progress.json",
     "memory": "data/memory.json",
     "learned_patterns": "data/learned_patterns.json",
     "revenue": "data/revenue/"
   },
-  "total_tasks": 26,
-  "completed": 18,
+  "total_tasks": 34,
+  "completed": 19,
   "in_progress": 2,
-  "pending": 6,
-  "completion_percent": 69
+  "pending": 13,
+  "completion_percent": 56
 }

@@ -1,143 +1,148 @@
 # PersonAI Master Roadmap
 
-## Vision: Self-Driven Real-Mode
+## Vision: Always-On Autonomous Operator (Native Self-Driven Core)
 
-**Core Principle**: 100% native processing without external APIs
+**Core Principle**: 100% native/self-driven processing across runtime, tests, and documentation. No external model APIs are required for core operation.
 
-> "A fully autonomous AI that thinks, learns, improves itself, generates revenue, and converses - all without external dependencies"
+> "An always-on autonomous operator that thinks, learns, improves, earns, verifies, and documents itself continuously with native processing."
 
-## Dream State: Always-On Autonomous Operator
+## Dream State
 
-PersonAI should evolve into an always-on autonomous operator that can:
-- continuously improve its own code quality and behavior,
-- optimize and run revenue systems with minimal intervention,
-- preserve and transfer learning across modules,
-- and stay fully native/self-driven without depending on third-party model APIs.
+PersonAI runs as a continuous autonomous operator that:
+- self-directs goals and execution loops,
+- improves code and behavior continuously,
+- operates and optimizes revenue engines autonomously,
+- self-generates and self-heals tests,
+- auto-updates docs and roadmap truthfully,
+- and remains fully native/self-driven end-to-end.
 
-## Core Features
+---
 
-### SelfDrivenNLP 🎯
-**100% Native Self-Driven NLP Processing - No External APIs**
+## Operating Constraints (Non-Negotiable)
 
-The core AI processing engine for PersonAI.
+- Native/self-driven processing is the default path for all core systems.
+- External APIs are optional augmentation only, never a dependency for core behavior.
+- Every roadmap deliverable must include runtime behavior, test coverage, and documentation updates.
+- Roadmap and progress data files are the source of truth and must stay synchronized.
 
-| Property | Value |
-|----------|-------|
-| File | `src/llm/__init__.py` |
-| Class | `SelfDrivenNLP` |
-| Data | `data/learned_patterns.json` |
-| Tests | `tests/advanced/test_llm_intent_parsing_advanced.py` |
-| Status | **COMPLETED** |
+---
 
-**Capabilities:**
-- Intent parsing via rule-based pattern matching
-- Memory integration for context-aware responses
-- Pattern learning from user interactions
-- Real-time response generation
-- Conversation history tracking
-- 100% native processing - no external APIs
+## Core Systems (All Native-First)
 
-### Other Core Systems (All Completed)
-- **SelfImprovement**: Autonomous code improvement engine (`src/self_improving/`)
-- **Memory**: Persistent conversation storage (`src/memory/__init__.py`)
-- **Revenue**: 7 AI revenue models (`src/revenue/`)
-- **Consciousness**: Autonomous thinking system (`src/consciousness/heartbeat.py`)
+| System | Scope | Status |
+|---|---|---|
+| SelfDrivenNLP | Native intent parsing, response generation, pattern learning | ✅ Completed baseline |
+| SelfImprovement | Autonomous analysis, fixes, verification, git workflow | ✅ Completed baseline |
+| Memory | Persistent memory + cross-cycle learning signals | ✅ Completed baseline |
+| Revenue | Autonomous orchestration of 7 revenue models | ✅ Completed baseline |
+| Consciousness/Heartbeat | Always-on autonomous loop and health signaling | ✅ Completed baseline |
+| Planning/Roadmap | Phase execution, sync, and truth tracking | ✅ Completed baseline |
 
 ---
 
 ## Phase 1: Foundation ✅ COMPLETED
-Core infrastructure and basic functionality
+Native-first core runtime foundation.
 
 ### Tasks
-- [x] Core state management - Thread-safe AGI state with event system (`src/core/state.py`)
-- [x] Memory system - Persistent conversation storage (`src/memory/__init__.py`)
-- [x] **SelfDrivenNLP** - Pure Python NLP without external APIs (`src/llm/__init__.py`)
-- [x] Agent system - Supervisor, researcher, coder agents (`src/agents/`)
-- [x] Revenue models - 7 core AI revenue models (`src/revenue/models/`)
-- [x] Self-improvement engine - Autonomous code improvement (`src/self_improving/`)
-- [x] Consciousness/Heartbeat - Autonomous thinking system (`src/consciousness/heartbeat.py`)
-- [x] Main controller - Orchestration of all systems (`src/core/controller.py`)
+- [x] Core state management (`src/core/state.py`)
+- [x] Memory system (`src/memory/__init__.py`)
+- [x] SelfDrivenNLP baseline (`src/llm/__init__.py`)
+- [x] Agent system (`src/agents/`)
+- [x] Revenue model baseline (`src/revenue/models/`)
+- [x] Self-improvement engine baseline (`src/self_improving/`)
+- [x] Consciousness heartbeat baseline (`src/consciousness/heartbeat.py`)
+- [x] Main controller orchestration (`src/core/controller.py`)
 
 ---
 
-## Phase 2: Planning & Roadmapping ✅ COMPLETED
-Planning and roadmap management
+## Phase 2: Planning, Autonomy Loop, and Truth Sync ✅ COMPLETED
+Roadmap-driven autonomous execution and synchronization.
 
 ### Tasks
-- [x] Roadmap tracker - JSON-based progress tracking (`data/roadmap_progress.json`)
-- [x] Planning loop - Main execution loop (`src/planning/loop.py`)
-- [x] Improvement cycle - Self-improvement orchestration (`src/self_improving/runner.py`)
-- [x] Pattern learning - SelfDrivenNLP learns from interactions (`src/llm/__init__.py`)
+- [x] Roadmap tracker with persisted progress (`data/roadmap_progress.json`)
+- [x] Planning loop (`src/planning/loop.py`)
+- [x] Improvement cycle orchestration (`src/self_improving/runner.py`)
+- [x] Pattern learning persistence (`data/learned_patterns.json`)
+- [x] Roadmap sync contract (`src/planning/roadmap_sync.py`)
 
 ---
 
-## Phase 3: Web UI & API ✅ COMPLETED
-Web interface and REST API
+## Phase 3: Native Interfaces (CLI/API/Web) ✅ COMPLETED
+Expose autonomous capabilities through operator interfaces.
 
 ### Tasks
-- [x] Chat API - /chat endpoint with session management (`src/api/chat.py`)
-- [x] NLP Service API - aiohttp web server (`src/api/nlp_service.py`)
-- [x] Persistent history - JSON file storage (`data/memory.json`)
-- [x] CLI interface - Command line tool (`src/cli/main.py`)
-- [x] Web chat interface - Zo.space chat page
-- [x] Unit tests - Comprehensive test coverage (38 tests)
+- [x] Chat API (`src/api/chat.py`)
+- [x] NLP service API (`src/api/nlp_service.py`)
+- [x] Persistent conversation history (`data/memory.json`)
+- [x] CLI interface (`src/cli/main.py`)
+- [x] Web chat interface (zo.space route)
+- [x] Baseline test suite integration (`tests/`)
 
 ---
 
-## Phase 4: Advanced Self-Driven Features 🔄 IN PROGRESS
-Advanced capabilities that maintain the Self-Driven Real-Mode vision
+## Phase 4: Deep Native Autonomy 🔄 IN PROGRESS
+Upgrade from baseline autonomy to self-directed operation depth.
 
 ### Tasks
-- [ ] Enhanced pattern learning - Deeper pattern acquisition beyond 3-word keys
-- [ ] Autonomous code analysis - Deeper static analysis for self-improvement
-- [ ] Enhanced personalization - Deeper user preference learning
-- [ ] Autonomous goal setting - Self-directed objective creation
+- [ ] Enhanced native pattern learning (phrase/semantic depth)
+- [ ] Autonomous code analysis expansion (complexity, duplication, hotspots)
+- [ ] Deep personalization learning
+- [ ] Autonomous goal synthesis from performance signals
+- [ ] Long-horizon planner for multi-cycle execution
 
 ---
 
-## Phase 5: Autonomous Operating System 📋 PENDING
-Full autonomy - the AI runs, learns, and monetizes continuously
+## Phase 5: Always-On Revenue Operator 📋 PENDING
+Convert revenue engines into continuously self-optimizing autonomous operators.
 
 ### Tasks
-- [ ] Continuous self-improvement - 24/7 autonomous improvement cycles
-- [ ] Autonomous revenue optimization - Self-tuning revenue models
-- [ ] Cross-module learning - Knowledge transfer between subsystems
-- [ ] Self-generated tests - Autonomous test creation
+- [ ] 24/7 autonomous revenue execution scheduling
+- [ ] Self-tuning allocation and strategy mutation
+- [ ] Cross-model profit/risk balancing
+- [ ] Autonomous experiment runner for offers/channels/pricing
+- [ ] Native safety guardrails for autonomous execution decisions
+
+---
+
+## Phase 6: Autonomous Verification & Documentation Fabric 📋 PENDING
+Native self-driven testing and self-maintaining documentation across the full project.
+
+### Tasks
+- [ ] Self-generated tests for new behaviors and regressions
+- [ ] Self-healing test loop with root-cause tagging
+- [ ] Continuous coverage expansion and risk-based test prioritization
+- [ ] Autonomous documentation refresh after each accepted change
+- [ ] Roadmap/doc/reality consistency auditor (reject stale claims)
+- [ ] Native “proof of autonomy” report per cycle (runtime + tests + docs)
 
 ---
 
 ## Progress Summary
 
 | Metric | Value |
-|--------|-------|
-| Total Tasks | 26 |
-| Completed | 18 |
+|---|---|
+| Total Tasks | 34 |
+| Completed | 19 |
 | In Progress | 2 |
-| Pending | 6 |
-| Completion | **69%** |
-| Test Coverage | 38 tests |
+| Pending | 13 |
+| Completion | **56%** |
 
-## Data Files (Single Source of Truth)
+---
 
-- **Main Roadmap**: `data/roadmap.json` - Phase-based task tracking
-- **Progress Tracker**: `data/roadmap_progress.json` - Detailed item-level progress
-- **Memory**: `data/memory.json` - Persistent conversation storage
-- **Learned Patterns**: `data/learned_patterns.json` - SelfDrivenNLP pattern learning
+## Source-of-Truth Files
+
+- `data/roadmap.json` — Master machine-readable roadmap
+- `data/roadmap_progress.json` — Item-level progress state
+- `data/learned_patterns.json` — Learned native language patterns
+- `data/memory.json` — Persistent memory
+
+---
 
 ## Changelog
 
-### 2026-03-17 (Cycle 15) - Vision Alignment
-- Added explicit vision statement: "Self-Driven Real-Mode: 100% native processing without external APIs"
-- Fixed SelfDrivenNLP status from in_progress to completed (it's fully implemented)
-- Removed "LLM integration - Connect to external LLM providers" from Phase 4 (contradicts vision)
-- Replaced "Multi-modal support" with "Autonomous goal setting" (aligns with dream)
-- Renamed Phase 5 to "Autonomous Operating System" to reflect the end-state vision
-- Updated Phase 4 name to "Advanced Self-Driven Features"
-- Updated progress metrics to 18 completed / 2 in progress / 6 pending (69%)
-
-### 2026-03-17 (Cycle 13)
-- Consolidated roadmap into single source of truth (`data/roadmap.json`)
-- Added pattern learning to SelfDrivenNLP
-- Enhanced /chat API with rich context
-- 17 tests passing
-- Phase 4: Advanced Features now in progress
+### 2026-03-17 (Roadmap Realignment: Always-On Autonomous Operator)
+- Realigned roadmap to explicit end-state: always-on autonomous operator.
+- Enforced native/self-driven processing as project-wide default (runtime/tests/docs).
+- Added Phase 6 dedicated to autonomous verification + documentation fabric.
+- Added explicit requirement that every deliverable includes runtime, tests, and docs updates.
+- Updated progress metrics for expanded scope (34 total tasks, 56% complete).

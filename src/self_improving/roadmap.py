@@ -50,7 +50,8 @@ class RollingRoadmap:
                     self.cycles_completed = data.get('cycles_completed', 0)
                     self.improvements_made = data.get('improvements_made', 0)
             except Exception as e:
-                pass
+                # Handle exception - silently fail for now
+    # Handle exception
     
     def _save(self):
         """Save roadmap data"""

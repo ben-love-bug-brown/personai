@@ -69,7 +69,6 @@ class AffiliateMarketing(RevenueModel):
                         self.affiliate_links.append(AffiliateLink(**l))
             except Exception:
                 pass  # Handle exception
-    # Handle exception
         
         content_file = os.path.join(data_dir, "affiliate_content.json")
         if os.path.exists(content_file):
@@ -80,7 +79,6 @@ class AffiliateMarketing(RevenueModel):
                         self.content.append(ContentPiece(**c))
             except Exception:
                 pass  # Handle exception
-    # Handle exception
         
         # Default keywords
         if not self.keywords:

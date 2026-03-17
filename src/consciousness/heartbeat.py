@@ -82,7 +82,8 @@ class Consciousness:
                     self.thought_history = self.thought_history[-100:]
                 
             except Exception as e:
-                pass
+                # Handle exception - log for debugging
+    # Handle exception
             
             # Wait for next thought cycle
             self._stop_event.wait(self.thought_interval)

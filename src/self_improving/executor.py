@@ -239,8 +239,9 @@ class SelfImprovementExecutor:
                 os.remove(backup_path)
                 return True
         except Exception as e:
-            pass
-        return False
+            # Handle exception - log and return False
+            print(f"Revert failed: {e}")
+            return False
     
     def run_improvement_cycle(self) -> Dict[str, Any]:
         """Run a complete improvement cycle"""

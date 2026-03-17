@@ -86,6 +86,7 @@ class MemoryService:
                         item = MemoryItem.from_dict(item_data)
                         self.memories[item.id] = item
             except Exception:
+                # Handle exception - log if needed
                 pass
     
     def _save(self):

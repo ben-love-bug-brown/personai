@@ -1,0 +1,10 @@
+*.pyc
+__pycache__/
+*.backup
+*.log
+.env
+data/*.json
+!data/roadmap_progress.json
+!data/self_improvement_run_report.json
+.pytest_cache/
+

@@ -13,12 +13,17 @@ class Roadmap:
     def __init__(self):
         self.phases = self._load_roadmap()
     
-    def _load_roadmap(self) -> list:
+    def _load_roadmap(self):
         """Load roadmap from file or create default"""
         if os.path.exists(ROADMAP_FILE):
             with open(ROADMAP_FILE, 'r') as f:
-                return json.load(f)
+                data = json.load(f)
+                # Handle both old format (list) and new format (dict with phases key)
+                if isinstance(data, dict) and 'phases' in data:
+                    return data['phases']
+                return data
         
+        # Default roadmap
         return [
             {
                 "id": "phase1",
@@ -31,53 +36,33 @@ class Roadmap:
                     {"id": "agents", "name": "Agent system", "status": "completed"},
                 ]
             },
-            {
-                "id": "phase2",
-                "name": "Phase 2: Planning & Roadmapping",
-                "description": "Self-improvement and roadmap tracking",
-                "tasks": [
-                    {"id": "roadmap", "name": "Roadmap management", "status": "in_progress"},
-                    {"id": "self_improvement", "name": "Self-improvement loop", "status": "pending"},
-                    {"id": "personalization", "name": "User personalization", "status": "pending"},
-                ]
-            },
-            {
-                "id": "phase3",
-                "name": "Phase 3: Web UI & API",
-                "description": "Zo.space web interface and API",
-                "tasks": [
-                    {"id": "web_ui", "name": "Web chat interface", "status": "completed"},
-                    {"id": "api", "name": "REST API", "status": "completed"},
-                    {"id": "persistent_history", "name": "Persistent history", "status": "pending"},
-                ]
-            },
-            {
-                "id": "phase4",
-                "name": "Phase 4: Advanced Features",
-                "description": "Advanced NLP and autonomous capabilities",
-                "tasks": [
-                    {"id": "llm_integration", "name": "LLM integration", "status": "pending"},
-                    {"id": "autonomous", "name": "Autonomous improvements", "status": "pending"},
-                ]
-            }
         ]
     
     def save(self):
         """Save roadmap to file"""
         os.makedirs(os.path.dirname(ROADMAP_FILE), exist_ok=True)
+        
+        # Save in new format with metadata
+        data = {
+            "name": "PersonAI Master Roadmap",
+            "version": "2.0.0",
+            "last_updated": datetime.now().isoformat(),
+            "phases": self.phases
+        }
+        
         with open(ROADMAP_FILE, 'w') as f:
-            json.dump(self.phases, f, indent=2)
+            json.dump(data, f, indent=2)
     
     def get_status_summary(self) -> Dict:
         """Get summary of roadmap status"""
-        total = sum(len(p.get('tasks', [])) for p in self.phases)
+        total = sum(len(p.get('tasks', [])) for p in self.phases if isinstance(p, dict))
         completed = sum(
-            sum(1 for t in p.get('tasks', []) if t.get('status') == 'completed')
-            for p in self.phases
+            sum(1 for t in p.get('tasks', []) if isinstance(t, dict) and t.get('status') == 'completed')
+            for p in self.phases if isinstance(p, dict)
         )
         in_progress = sum(
-            sum(1 for t in p.get('tasks', []) if t.get('status') == 'in_progress')
-            for p in self.phases
+            sum(1 for t in p.get('tasks', []) if isinstance(t, dict) and t.get('status') == 'in_progress')
+            for p in self.phases if isinstance(p, dict)
         )
         
         return {
@@ -91,20 +76,18 @@ class Roadmap:
     def mark_complete(self, task_id: str) -> bool:
         """Mark a task as completed"""
         for phase in self.phases:
+            if not isinstance(phase, dict):
+                continue
             for task in phase.get("tasks", []):
-                if task["id"] == task_id:
+                if not isinstance(task, dict):
+                    continue
+                if task.get("id") == task_id:
                     task["status"] = "completed"
                     self.save()
                     return True
         return False
 
 
-# Global instance
-_roadmap = None
-
 def get_roadmap() -> Roadmap:
     """Get the roadmap instance"""
-    global _roadmap
-    if _roadmap is None:
-        _roadmap = Roadmap()
-    return _roadmap
+    return Roadmap()

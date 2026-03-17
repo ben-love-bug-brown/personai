@@ -12,6 +12,16 @@ A self-improving AI assistant with autonomous capabilities, built on the PersonA
 - **REST API**: Full API at https://badlucksbane.zo.space/api/personai
 - **Service Management**: Auto-start via Zo service manager
 
+## Maintenance Update (Current Session)
+
+- Removed leftover compatibility/dead code paths and unused imports across core modules.
+- Refactored `src/api/nlp_service.py` for stronger stability using typed `aiohttp.web.AppKey` storage.
+- Reduced private coupling by adding `MainLoop.get_history()` and switching API history reads to that public method.
+- Improved NLP hot path in `src/llm/__init__.py` by using learned-pattern cache before rule-generation fallback.
+- Cleaned and standardized code quality via Ruff-safe fixes.
+- Improved readability and maintainability in affiliate model internals (`src/revenue/models/affiliate.py`) with clearer variable naming.
+- Hardened roadmap verification tests by checking stable task IDs with backward-compatible name fallback.
+
 ## Roadmap Progress
 
 | Phase | Name | Status |
@@ -43,12 +53,16 @@ A self-improving AI assistant with autonomous capabilities, built on the PersonA
 ## Quick Start
 
 ```bash
-# Install dependencies
 cd /home/workspace/personai
 pip install -e .
-
-# Run the NLP service
 python -m src.api.nlp_service
+```
+
+## Validation
+
+```bash
+python -m ruff check src tests
+python -m pytest -q tests/unit tests/integration tests/advanced
 ```
 
 ## API Endpoints
@@ -89,11 +103,6 @@ personai/
 ├── tests/              # Test suite
 └── docs/               # Documentation
 ```
-
-## Notes
-
-- Repository hygiene improved: tracked `__pycache__/`, `*.pyc`, and `*.backup` artifacts were removed from git tracking.
-- Revenue model bootstrap/config persistence was modularized for easier maintenance and testing.
 
 ## Testing
 

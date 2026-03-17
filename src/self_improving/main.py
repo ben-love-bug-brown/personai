@@ -197,7 +197,7 @@ class GitManager:
             target = "HEAD" if count <= 0 else f"HEAD~{count}"
             subprocess.run(["git", "reset", "--hard", target], cwd=self.repo_path, capture_output=True)
             return True
-        except Exception as e:
+        except Exception:
             return False
     
     def create_branch(self, branch_name: str) -> bool:
@@ -205,7 +205,7 @@ class GitManager:
             subprocess.run(["git", "checkout", "-b", branch_name], cwd=self.repo_path, capture_output=True)
             self.current_branch = branch_name
             return True
-        except Exception as e:
+        except Exception:
             return False
 
 

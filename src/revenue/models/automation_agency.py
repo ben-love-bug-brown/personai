@@ -4,7 +4,7 @@ AI Automation Agency Revenue Model
 Builds automation workflows for clients using n8n/Make.com.
 """
 
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, List
 from datetime import datetime
 from dataclasses import dataclass, field
 import json

@@ -15,23 +15,39 @@ PersonAI is a self-directed AI partner that:
 - Maintains memory and context across sessions
 - Provides conversation and assistance
 
+## Session Engineering Notes (Compatibility Cleanup + Stability)
+
+This session focused on removing leftover compatibility/dead code paths, modular cleanup, and stability/performance hardening.
+
+### What changed
+
+- Replaced untyped aiohttp app dict keys with typed `web.AppKey` in `src/api/nlp_service.py`.
+- Removed direct private history access by introducing `MainLoop.get_history(limit=50)` and using it in API handlers.
+- Improved `SelfDrivenNLP` response flow: learned-pattern cache now short-circuits before rule fallback when available.
+- Cleaned dead imports and low-signal cruft across modules with safe lint auto-fixes.
+- Refactored affiliate model internals for clearer variable names and easier maintenance.
+- Updated roadmap verification tests to rely on stable task IDs while preserving compatibility with legacy task names.
+
+### Validation performed
+
+```bash
+python -m ruff check src tests
+python -m pytest -q tests/unit tests/integration tests/advanced
+```
+
+Result:
+- Ruff: **All checks passed**
+- Pytest: **41 passed**
+
 ## Quick Start
 
 ```bash
-# Install dependencies
 cd personai
 pip install -e .
 
-# Check status
 python -m src.cli.main status
-
-# Run revenue generation
 python -m src.cli.main revenue
-
-# Chat with PersonAI
 python -m src.cli.main chat "Hello"
-
-# Run self-improvement cycle
 python -c "from src.self_improving.runner import get_runner; get_runner().run_cycle()"
 ```
 
@@ -41,16 +57,16 @@ python -c "from src.self_improving.runner import get_runner; get_runner().run_cy
 personai/
 ├── src/
 │   ├── core/           # State management, controller
-│   ├── agents/          # Agent definitions
+│   ├── agents/         # Agent definitions
 │   ├── memory/         # Persistent memory service
-│   ├── llm/            # LLM clients (OpenAI, Anthropic, Self-Driven)
+│   ├── llm/            # Native self-driven NLP stack
 │   ├── consciousness/  # Autonomous thinking/heartbeat
 │   ├── self_improving/ # Self-improvement executor
-│   ├── revenue/       # Revenue generation models
-│   └── cli/           # Command-line interface
-├── docs/              # Documentation
-├── data/              # Runtime data (memory, config, revenue)
-└── tests/             # Test suite
+│   ├── revenue/        # Revenue generation models
+│   └── cli/            # Command-line interface
+├── docs/               # Documentation
+├── data/               # Runtime data (memory, config, revenue)
+└── tests/              # Test suite
 ```
 
 ## Core Systems
@@ -58,61 +74,17 @@ personai/
 ### State Management (`src/core/state.py`)
 Thread-safe state management with subscriber pattern.
 
-```python
-from src.core.state import get_state
-
-state = get_state()
-state.set('goal', 'Build autonomous revenue')
-goals = state.get('goals', [])
-```
-
 ### Memory Service (`src/memory/`)
 Unified memory with persistence.
 
-```python
-from src.memory import get_memory
-
-memory = get_memory()
-memory.memorize("User prefers concise responses", importance=0.8)
-context = memory.recall("user preferences", limit=5)
-```
-
 ### LLM Client (`src/llm/`)
-Unified interface to multiple LLM providers with self-driven fallback.
-
-```python
-from src.llm import get_llm_client
-
-llm = get_llm_client()
-response = llm.generate("Hello, how are you?")
-# Falls back to self-driven NLP if API unavailable
-```
+Unified interface using native self-driven NLP. Learned pattern responses are reused first where possible.
 
 ### Self-Improvement (`src/self_improving/`)
 Autonomous code improvement system.
 
-```python
-from src.self_improving import get_executor, get_runner
-
-# Analyze and suggest improvements
-executor = get_executor()
-actions = executor.analyze_and_suggest()
-
-# Run full improvement cycle
-runner = get_runner()
-result = runner.run_cycle()
-```
-
 ### Revenue System (`src/revenue/`)
 7 revenue generation models with orchestration.
-
-```python
-from src.revenue import create_orchestrator
-
-orchestrator = create_orchestrator()
-orchestrator.execute_all()  # Run all enabled models
-orchestrator.get_report()   # Get revenue report
-```
 
 Revenue internals are modularized:
 - `src/revenue/model_factory.py` builds model instances
@@ -134,112 +106,19 @@ Revenue internals are modularized:
 ## CLI Commands
 
 ```bash
-# Chat with PersonAI
 python -m src.cli.main chat "Hello"
-
-# Status
 python -m src.cli.main status
-
-# Revenue
 python -m src.cli.main revenue
 python -m src.cli.main run_model automation_agency
 python -m src.cli.main enable_model micro_saas
 python -m src.cli.main disable_model trading_bot
-
-# Report
 python -m src.cli.main report
-```
-
-## API
-
-PersonAI has a full REST API for programmatic access:
-
-```python
-from src.api.chat import get_chat_api
-
-api = get_chat_api()
-
-# Chat
-result = api.chat("Hello, how are you?")
-print(result['response'])
-print(result['session_id'])
-
-# Create session
-session_id = api.create_session({"user": "test"})
-
-# Get status
-status = api.get_status()
-print(f"Sessions: {status['sessions']}")
-print(f"LLM: {status['llm_provider']}")
-
-# Run self-improvement
-improvement = api.run_self_improvement()
-
-# Generate revenue
-revenue = api.generate_revenue()
-```
-
-### API Endpoints (Future FastAPI)
-
-```python
-from src.api.chat import create_chat_app
-
-app = create_chat_app()  # Returns FastAPI app
-# Or use directly:
-# POST /chat - Chat with PersonAI
-# POST /sessions - Create session
-# GET /sessions - List sessions
-# GET /status - Get system status
-# POST /improve - Run self-improvement
-# POST /revenue - Generate revenue
-```
-
-## Self-Improvement
-
-PersonAI continuously improves itself by:
-1. Analyzing code for issues
-2. Suggesting improvements
-3. Applying fixes automatically
-4. Verifying with tests
-5. Committing changes to git
-
-Run cycles:
-```bash
-python -c "from src.self_improving.runner import get_runner; print(get_runner().run_cycle())"
 ```
 
 ## Development
 
 ```bash
-# Run tests
 python run_tests.py
-
-# Lint (placeholder)
 ruff check src/
-
-# Format (placeholder)
 ruff format src/
 ```
-
-## Configuration
-
-Configuration is stored in `data/revenue/config.json`:
-
-```json
-{
-  "allocation": {
-    "automation_agency": 20.0,
-    "micro_saas": 15.0,
-    "affiliate_marketing": 15.0,
-    "digital_products": 15.0,
-    "ai_consulting": 15.0,
-    "content_creator": 10.0,
-    "trading_bot": 10.0
-  },
-  "updated_at": "2026-03-17T00:00:00"
-}
-```
-
-## License
-
-MIT

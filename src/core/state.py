@@ -5,7 +5,7 @@ Thread-safe state management for PersonAI.
 """
 
 import threading
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any, Dict, Optional
 from datetime import datetime
 from enum import Enum

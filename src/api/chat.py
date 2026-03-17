@@ -4,8 +4,6 @@ Chat API
 REST API endpoints for PersonAI chat functionality.
 """
 
-import os
-import json
 import uuid
 from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field

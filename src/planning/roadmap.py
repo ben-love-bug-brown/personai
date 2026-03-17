@@ -3,7 +3,7 @@
 import json
 import os
 from datetime import datetime
-from typing import Optional, List, Dict
+from typing import Dict
 
 ROADMAP_FILE = "/home/workspace/personai/data/roadmap.json"
 

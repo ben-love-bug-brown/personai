@@ -5,14 +5,12 @@ Runs autonomous self-improvement cycles.
 """
 
 import time
-import json
 import threading
 from typing import Dict, Any, List, Optional
 from datetime import datetime
-import uuid
 
-from .executor import get_executor, SelfImprovementExecutor
-from .roadmap import get_roadmap, RollingRoadmap
+from .executor import get_executor
+from .roadmap import get_roadmap
 from ..memory import get_memory, MemoryCategory
 from ..core.state import get_state
 
@@ -146,9 +144,9 @@ class SelfImprovementRunner:
                     'description': action.description,
                     'file': action.file_path
                 })
-                print(f"   ✅ Applied")
+                print("   ✅ Applied")
             else:
-                print(f"   ❌ Failed")
+                print("   ❌ Failed")
         
         result['actions_applied'] = applied
         result['improvements'] = improvements
@@ -161,7 +159,7 @@ class SelfImprovementRunner:
         if test_result['passed']:
             print("   ✅ All tests passed!")
         else:
-            print(f"   ❌ Tests failed")
+            print("   ❌ Tests failed")
             if test_result.get('errors'):
                 print(f"   Error: {test_result['errors'][:200]}")
             

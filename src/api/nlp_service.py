@@ -1,19 +1,19 @@
 """NLP Service - Main API server for PersonAI"""
 
-import asyncio
-import json
-import os
 import sys
 from aiohttp import web
 from datetime import datetime
 
-# Add parent to path
 sys.path.insert(0, '/home/workspace/personai')
 
-from src.llm import get_llm_client
-from src.memory import get_memory
-from src.planning.loop import MainLoop, get_main_loop
+from src.llm import get_llm_client, LLMClient
+from src.memory import get_memory, MemoryService
+from src.planning.loop import MainLoop
 from src.planning.roadmap import get_roadmap
+
+LLM_CLIENT_KEY = web.AppKey("llm_client", LLMClient)
+MEMORY_KEY = web.AppKey("memory", MemoryService)
+MAIN_LOOP_KEY = web.AppKey("main_loop", MainLoop)
 
 
 async def handle_chat(request):
@@ -21,10 +21,10 @@ async def handle_chat(request):
     try:
         data = await request.json()
         message = data.get('message', '')
-        
-        loop = request.app['main_loop']
+
+        loop = request.app[MAIN_LOOP_KEY]
         result = await loop.send_message(message)
-        
+
         return web.json_response({
             'response': result.get('response', 'No response'),
             'timestamp': datetime.now().isoformat()
@@ -35,14 +35,16 @@ async def handle_chat(request):
 
 async def handle_status(request):
     """Handle status requests"""
-    loop = request.app['main_loop']
+    loop = request.app[MAIN_LOOP_KEY]
     status = loop.get_status()
     roadmap = get_roadmap()
-    
+    running = bool(status.get('running', False))
+
     return web.json_response({
         'name': 'PersonAI',
         'version': '0.1.0',
-        'status': status.get('running', False),
+        'status': 'active' if running else 'stopped',
+        'running': running,
         'message_count': status.get('message_count', 0),
         'roadmap': roadmap.get_status_summary(),
         'personalization': 'active',
@@ -52,8 +54,8 @@ async def handle_status(request):
 
 async def handle_history(request):
     """Handle history requests"""
-    loop = request.app['main_loop']
-    history = loop._conversation_history[-50:] if hasattr(loop, '_conversation_history') else []
+    loop = request.app[MAIN_LOOP_KEY]
+    history = loop.get_history(50)
     return web.json_response({'conversations': [{'messages': history}]})
 
 
@@ -65,7 +67,7 @@ async def handle_roadmap(request):
 
 async def handle_improve(request):
     """Handle self-improvement requests"""
-    loop = request.app['main_loop']
+    loop = request.app[MAIN_LOOP_KEY]
     try:
         loop.trigger_self_improvement()
         return web.json_response({'status': 'improvement_triggered'})
@@ -81,28 +83,24 @@ async def health_check(request):
 def create_app():
     """Create the aiohttp application"""
     app = web.Application()
-    
-    # Initialize components - memory needs storage path, not llm client
+
     memory = get_memory("/home/workspace/personai/data/memory.json")
     llm_client = get_llm_client()
     main_loop = MainLoop(llm_client, memory)
-    
-    # Store in app
-    app['llm_client'] = llm_client
-    app['memory'] = memory
-    app['main_loop'] = main_loop
-    
-    # Start the main loop
+
+    app[LLM_CLIENT_KEY] = llm_client
+    app[MEMORY_KEY] = memory
+    app[MAIN_LOOP_KEY] = main_loop
+
     main_loop.start_async()
-    
-    # Add routes
+
     app.router.add_post('/chat', handle_chat)
     app.router.add_get('/status', handle_status)
     app.router.add_get('/history', handle_history)
     app.router.add_get('/roadmap', handle_roadmap)
     app.router.add_post('/improve', handle_improve)
     app.router.add_get('/health', health_check)
-    
+
     return app
 
 

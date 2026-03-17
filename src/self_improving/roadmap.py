@@ -67,7 +67,7 @@ class RollingRoadmap:
                             )
                         except Exception:
                             continue
-            except Exception as e:
+            except Exception:
                 # Handle exception - silently fail for now
                 pass
     

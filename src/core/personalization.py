@@ -3,7 +3,7 @@
 import json
 import os
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 
 PROFILE_FILE = "/home/workspace/personai/data/user_profile.json"
 

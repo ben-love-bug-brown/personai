@@ -136,8 +136,8 @@ class StateManager:
         for callback in self._subscribers:
             try:
                 callback(key, value)
-            except Exception as e:
-                pass  # Handle exception
+            except Exception:
+                pass  # Silently ignore subscriber errors
     
     def to_json(self) -> str:
         """Serialize state to JSON"""

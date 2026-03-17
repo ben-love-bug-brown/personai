@@ -1,0 +1,127 @@
+[
+  {
+    "id": "phase1",
+    "name": "Phase 1: Foundation",
+    "description": "Core infrastructure and basic functionality",
+    "tasks": [
+      {
+        "id": "core",
+        "name": "Core state management",
+        "status": "completed"
+      },
+      {
+        "id": "memory",
+        "name": "Memory system",
+        "status": "completed"
+      },
+      {
+        "id": "nlp",
+        "name": "Self-driven NLP",
+        "status": "completed"
+      },
+      {
+        "id": "agents",
+        "name": "Agent system",
+        "status": "completed"
+      }
+    ]
+  },
+  {
+    "id": "phase2",
+    "name": "Phase 2: Planning & Roadmapping",
+    "description": "Self-improvement and roadmap tracking",
+    "tasks": [
+      {
+        "id": "roadmap",
+        "name": "Roadmap management",
+        "status": "completed"
+      },
+      {
+        "id": "self_improvement",
+        "name": "Self-improvement loop",
+        "status": "completed"
+      },
+      {
+        "id": "personalization",
+        "name": "User personalization",
+        "status": "completed"
+      }
+    ]
+  },
+  {
+    "id": "phase3",
+    "name": "Phase 3: Web UI & API",
+    "description": "Zo.space web interface and API",
+    "tasks": [
+      {
+        "id": "web_ui",
+        "name": "Web chat interface",
+        "status": "completed"
+      },
+      {
+        "id": "api",
+        "name": "REST API",
+        "status": "completed"
+      },
+      {
+        "id": "persistent_history",
+        "name": "Persistent history",
+        "status": "completed"
+      },
+      {
+        "id": "service_manager",
+        "name": "Service manager auto-start",
+        "status": "completed"
+      },
+      {
+        "id": "webui_status",
+        "name": "WebUI service status indicator",
+        "status": "completed"
+      },
+      {
+        "id": "restart_button",
+        "name": "WebUI restart button",
+        "status": "completed"
+      }
+    ]
+  },
+  {
+    "id": "phase4",
+    "name": "Phase 4: Advanced Features",
+    "description": "Advanced NLP and autonomous capabilities",
+    "tasks": [
+      {
+        "id": "llm_integration",
+        "name": "LLM integration",
+        "status": "pending"
+      },
+      {
+        "id": "autonomous",
+        "name": "Autonomous improvements",
+        "status": "pending"
+      }
+    ]
+  },
+  {
+    "id": "phase5",
+    "name": "Phase 5: Next Generation",
+    "description": "Future improvements and features",
+    "tasks": [
+      {
+        "id": "enhanced_nlp",
+        "name": "Enhanced NLP with reasoning",
+        "status": "pending"
+      },
+      {
+        "id": "voice",
+        "name": "Voice interface",
+        "status": "pending"
+      },
+      {
+        "id": "multi_agent",
+        "name": "Multi-agent collaboration",
+        "status": "pending"
+      }
+    ]
+  }
+]

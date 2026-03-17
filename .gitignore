@@ -8,3 +8,4 @@ data/*.json
 !data/self_improvement_run_report.json
 .pytest_cache/
 
+!data/roadmap.json

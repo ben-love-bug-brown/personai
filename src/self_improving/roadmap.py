@@ -167,7 +167,7 @@ class RollingRoadmap:
         # Phase 1: Core Infrastructure
         improvements.append("Implement core state management")
         improvements.append("Implement memory service with persistence")
-        improvements.append("Implement LLM client with self-driven fallback")
+        improvements.append("Expand native SelfDrivenNLP capabilities without external APIs")
         improvements.append("Implement consciousness/heartbeat system")
         
         # Phase 2: Integration
@@ -186,7 +186,8 @@ class RollingRoadmap:
         improvements.append("Verify fixes with tests")
         
         # Phase 5: Completion
-        improvements.append("Complete Phase 5: Live Operations")
+        improvements.append("Complete Phase 5: Autonomous Operating System")
+        improvements.append("Enable continuous autonomous revenue optimization")
         improvements.append("Run full system test")
         improvements.append("Commit all changes to git")
         

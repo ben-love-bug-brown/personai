@@ -140,7 +140,7 @@ class LLMClient:
                 import openai
                 self._client = openai.OpenAI(api_key=self.api_key, base_url=self.base_url)
             except ImportError:
-    # Handle exception
+                pass  # Handle exception
     
     def generate(
         self,

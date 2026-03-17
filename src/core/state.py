@@ -137,7 +137,7 @@ class StateManager:
             try:
                 callback(key, value)
             except Exception as e:
-    # Handle exception
+                pass  # Handle exception
     
     def to_json(self) -> str:
         """Serialize state to JSON"""
